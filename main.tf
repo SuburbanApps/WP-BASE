@@ -7,6 +7,10 @@ provider "aws" {
     region ="eu-west-1"
 }
 
+module "ec2" {
+  source = "./modules/ec2"
+}
+
 terraform {
   backend "s3" {
     bucket = "vim-terraform-backend"
