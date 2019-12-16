@@ -1,4 +1,3 @@
-#archivo de configuracion general.
 
 #archivo principal de configuración.
 
@@ -7,36 +6,7 @@
 provider "aws" {
     region ="eu-west-1"
 }
-
-module "alb" {
-    source = "./modules/alb"
-    } 
-    
-module "ec2" { 
-    source = "./modules/ec2"
-        
-} 
-module "rds" {
-    source = "./modules/rds"
-    
-} 
-
-
-module "sg" { 
-    source = "./modules/sg"
-
-}
-
-module "efs" { 
-    source = "./modules/efs"
-
-}
-
-#module "autoscaling" { llamamos al modulo de los grupos de Autoscaling Proximo paso: importar outputs de los modulos
-    #source = "./modules/sg"
-
-#}
-
+  
 terraform {
   backend "s3" {
     #bucket = "telepizza-terraform-backend-tb2apps4uybcub8m"
