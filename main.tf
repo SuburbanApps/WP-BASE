@@ -17,7 +17,7 @@ module "ec2" {
   source = "./modules/ec2"
 
   vpc_id = "${local.vpc_id}"
-  incoming_sg_ids = "[${module.alb.alb_sg_id}]"
+  incoming_sg_ids = ["${module.alb.alb_sg_id}"]
 }
 
 terraform {
