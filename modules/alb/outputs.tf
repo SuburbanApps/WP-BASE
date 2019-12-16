@@ -1,3 +1,3 @@
 output "alb_sg_id" {
-  value = aws_instance.server.private_ip
+  value = aws_security_group.dv10-sg-wp-base-alb.id
 }
