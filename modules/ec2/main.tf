@@ -1,5 +1,5 @@
 resource "aws_security_group" "dv10-wp-instances-sg" {
-  name        = "dv10-wp-instances-sg"
+  name        = "dv10-sg-wp-base-instances"
   description = "Security Group Instances"
   vpc_id      = "${var.vpc_id}"
 
@@ -11,11 +11,19 @@ resource "aws_security_group" "dv10-wp-instances-sg" {
     security_groups = ["${aws_security_group.dv10-wp-base-alb-sg.id}"]
 
   }
-    egress {
+
+  egress {
     from_port       = 0
     to_port         = 0
     protocol        = "-1"
     cidr_blocks     = ["0.0.0.0/0"]
+  }
+
+  tags = {
+    Name = "dv10-sg-wp-base-instances"
+    Environment = "Development"
+    Project = "Wordpress Base"
+    IaC = "Terraform"
   }
 }
 
