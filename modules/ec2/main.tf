@@ -1,3 +1,4 @@
+
 resource "aws_launch_template" "dev-wp-base-launch-template" { // CONFIGURACION DE LANZAMIENTO DE PLANTILLA.
   name_prefix   = "dev-wp-base-launch-template"
   image_id      =   "ami-031de832435c04744"
