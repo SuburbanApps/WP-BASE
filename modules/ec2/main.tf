@@ -27,8 +27,8 @@ resource "aws_security_group" "dv10-sg-wp-base-instances" {
   }
 }
 
-resource "aws_launch_template" "dv10-wp-base-launch-template" { // CONFIGURACION DE LANZAMIENTO DE PLANTILLA.
-  name_prefix   = "dv10-wp-base-launch-template"
+resource "aws_launch_template" "dv10-lt-wp-base" {
+  name_prefix   = "dv10-lt-wp-base"
   image_id      =   "ami-031de832435c04744"
   instance_type           = "t2.micro"
   key_name                = "dev-tf-wp-launch-template"
