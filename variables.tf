@@ -1,0 +1,1 @@
+#variables globales, comunes a todos los módulos.
