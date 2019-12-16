@@ -1,4 +1,25 @@
+resource "aws_security_group" "dev10-wp-instances-sg" {
+  name        = "dev-wp-instances-sg"
+  description = "Security Group Instances"
+  vpc_id      = "${var.mivpc}"
 
+  ingress {
+    description     = "Security Group from Alb"
+    from_port       = 80
+    to_port         = 80
+    protocol        = "tcp"
+    security_groups = ["${aws_security_group.wp-alb-sg.id}"]
+
+  }
+    egress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
+
+
+}
 resource "aws_launch_template" "dev-wp-base-launch-template" { // CONFIGURACION DE LANZAMIENTO DE PLANTILLA.
   name_prefix   = "dev-wp-base-launch-template"
   image_id      =   "ami-031de832435c04744"
