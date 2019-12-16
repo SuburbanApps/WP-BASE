@@ -17,4 +17,11 @@ resource "aws_security_group" "dv10-wp-base-alb-sg" {
     protocol        = "-1"
     cidr_blocks     = ["0.0.0.0/0"]
   }
+
+  tags = {
+    Name = "dv10-sg-wp-base-alb"
+    Environment = "Development"
+    Project = "Wordpress Base"
+    IaC = "Terraform"
+  }
 }
