@@ -71,3 +71,14 @@ resource "aws_lb_target_group" "dv10-tg-wp-base" { //WP Empleo Target Group
   }
 
 }
+
+resource "aws_lb_listener" "dv10-listener-wp-base" { // WP Empleo 443 listener 
+  load_balancer_arn = "${aws_lb.dv10-alb-wp-base.id}"
+  port              = "80"
+  protocol          = "HTTP"
+
+  default_action {
+    type             = "forward"
+    target_group_arn = "${aws_lb_target_group.dv10-tg-wp-base.id}"
+  }
+}
