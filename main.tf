@@ -9,6 +9,8 @@ provider "aws" {
 
 module "alb" {
   source = "./modules/alb"
+
+  vpc_id = "${local.vpc_id}"
 }
 
 module "ec2" {
