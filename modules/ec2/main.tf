@@ -1,4 +1,4 @@
-resource "aws_security_group" "dv10-wp-instances-sg" {
+resource "aws_security_group" "dv10-sg-wp-base-instances" {
   name        = "dv10-sg-wp-base-instances"
   description = "Security Group Instances"
   vpc_id      = "${var.vpc_id}"
@@ -32,6 +32,7 @@ resource "aws_launch_template" "dv10-wp-base-launch-template" { // CONFIGURACION
   image_id      =   "ami-031de832435c04744"
   instance_type           = "t2.micro"
   key_name                = "dev-tf-wp-launch-template"
+  vpc_security_group_ids = ["${aws_security_group.dv10-sg-wp-base-instances.id}"]
 
   tag_specifications {
     resource_type = "instance"
