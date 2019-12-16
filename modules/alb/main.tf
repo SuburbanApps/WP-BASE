@@ -25,3 +25,5 @@ resource "aws_security_group" "dv10-sg-wp-base-alb" {
     IaC = "Terraform"
   }
 }
+
+# Prueba de sincronización
