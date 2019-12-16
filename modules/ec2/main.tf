@@ -1,7 +1,7 @@
 resource "aws_security_group" "dev10-wp-instances-sg" {
   name        = "dev-wp-instances-sg"
   description = "Security Group Instances"
-  vpc_id      = "${var.vpcid}"
+  vpc_id      = "${var.vpc_id}"
 
   ingress {
     description     = "Security Group from Alb"
