@@ -1,4 +1,4 @@
-resource "aws_launch_template" "dev-wp-base-launchtemplate" { // CONFIGURACION DE LANZAMIENTO DE PLANTILLA.
+resource "aws_launch_template" "dev-wp-base-launch-template" { // CONFIGURACION DE LANZAMIENTO DE PLANTILLA.
   name_prefix   = "dev-wp-base-launchtemplate"
   image_id      =   "ami-031de832435c04744"
   instance_type           = "t2.micro"
