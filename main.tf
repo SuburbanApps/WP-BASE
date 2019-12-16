@@ -7,8 +7,15 @@ provider "aws" {
     region ="eu-west-1"
 }
 
+module "alb" {
+  source = "./modules/alb"
+}
+
 module "ec2" {
   source = "./modules/ec2"
+
+  vpc_id = "${local.vpc_id}"
+  incoming_sg_ids = "${module.alb.security_group_id}"
 }
 
 terraform {
