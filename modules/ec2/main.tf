@@ -1,10 +1,10 @@
-resource "aws_security_group" "dev10-wp-instances-sg" {
-  name        = "dev-wp-instances-sg"
+resource "aws_security_group" "dv10-wp-instances-sg" {
+  name        = "dv10-wp-instances-sg"
   description = "Security Group Instances"
   vpc_id      = "${var.vpc_id}"
 
   ingress {
-    description     = "Security Group from Alb"
+    description     = "Traffic from Alb"
     from_port       = 80
     to_port         = 80
     protocol        = "tcp"
@@ -19,8 +19,8 @@ resource "aws_security_group" "dev10-wp-instances-sg" {
   }
 }
 
-resource "aws_launch_template" "dev-wp-base-launch-template" { // CONFIGURACION DE LANZAMIENTO DE PLANTILLA.
-  name_prefix   = "dev-wp-base-launch-template"
+resource "aws_launch_template" "dv10-wp-base-launch-template" { // CONFIGURACION DE LANZAMIENTO DE PLANTILLA.
+  name_prefix   = "dv10-wp-base-launch-template"
   image_id      =   "ami-031de832435c04744"
   instance_type           = "t2.micro"
   key_name                = "dev-tf-wp-launch-template"
