@@ -11,6 +11,7 @@ module "alb" {
   source = "./modules/alb"
 
   vpc_id = "${local.vpc_id}"
+  public_subnets = "${local.public_subnet_ids}"
 }
 
 module "ec2" {
