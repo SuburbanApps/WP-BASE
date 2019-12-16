@@ -3,7 +3,7 @@
 resource "aws_security_group" "wp-alb-sg" { // myportal ALB group
   name        = "dev-wp-alb-sg" //hacerlo mas adelante con variables.
   description = "SG for TPZCom Public Alb"
-  vpc_id      = "${var.mivpc}" //"${local.vpc_id}"
+  vpc_id      = "${var.vpcidentificador}"
 
   ingress {
     description = "From All"
@@ -40,7 +40,7 @@ resource "aws_lb" "dev10-tf-wp-alb" {
 }
 
 
-resource "aws_lb_listener" "MyportalListenerSSL" { //80 listener 
+resource "aws_lb_listener" "dev-tf-wp-listener443" {
   #load_balancer_arn = "${aws_lb.MyportalPublicAlb.arn}"
   port              = "443"
   protocol          = "HTTPS"
@@ -53,7 +53,7 @@ resource "aws_lb_listener" "MyportalListenerSSL" { //80 listener
   }
 }
 
-resource "aws_lb_listener" "MyportalListenerSSL" { //80 listener 
+resource "aws_lb_listener" "dev-tf-wp-listener80" {
   #load_balancer_arn = "${aws_lb.MyportalPublicAlb.arn}"
   port              = "80"
   protocol          = "HTTP"
@@ -65,7 +65,7 @@ resource "aws_lb_listener" "MyportalListenerSSL" { //80 listener
     target_group_arn = "${aws_lb_target_group.tf_wp_TargetGroup.arn}"
   }
 }
-resource "aws_lb_target_group" "tf_wp_TargetGroup"  {
+resource "aws_lb_target_group" "dev10-tf-wp-TargetGroup"  {
   name        = "devtfwptg"
   port        = "80"
   protocol    = "HTTP"
