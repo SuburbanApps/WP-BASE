@@ -8,7 +8,7 @@ resource "aws_security_group" "dv10-sg-wp-base-instances" {
     from_port       = 80
     to_port         = 80
     protocol        = "tcp"
-    security_groups = ["${aws_security_group.dv10-sg-wp-base-alb.id}"]
+    security_groups = ["${var.incoming_sg_ids}"]
 
   }
 
