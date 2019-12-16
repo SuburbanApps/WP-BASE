@@ -1,5 +1,5 @@
-resource "aws_security_group" "dv10-wp-base-alb-sg" {
-  name        = "dv10-wp-base-alb-sg"
+resource "aws_security_group" "dv10-sg-wp-base-alb" {
+  name        = "dv10-sg-wp-base-alb"
   description = "Security Group for Application Load Balancer"
   vpc_id      = "${var.vpc_id}"
 
