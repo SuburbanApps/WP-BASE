@@ -1,1 +1,0 @@
-#variables de nuestro EFS
