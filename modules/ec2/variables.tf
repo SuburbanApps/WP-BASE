@@ -3,7 +3,7 @@ variable "vpc_id" {
     type = "string"
 }
 
-variable "security_group_ids" {
-    description = "List of security group IDs that will apply to this compute resources"
+variable "incoming_sg_ids" {
+    description = "List of security group IDs that will send traffic to this compute resources."
     type = list(string)
 }
