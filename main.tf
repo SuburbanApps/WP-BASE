@@ -9,8 +9,8 @@ provider "aws" {
   
 terraform {
   backend "s3" {
-    #bucket = "telepizza-terraform-backend-tb2apps4uybcub8m"
-    #dynamodb_table = "telepizza-terraform-backend-tb2apps4uybcub8m"
+    bucket = "arn:aws:s3:::vim-terraform-backend"
+    dynamodb_table = "arn:aws:dynamodb:eu-west-1:190761377083:table/vim-terraform-backend"
     key = "myportal"
     role_arn = "arn:aws:iam::143491526082:role/TerraformAccess"
     profile = "terraform"
