@@ -21,6 +21,11 @@ module "ec2" {
   incoming_sg_ids = ["${module.alb.alb_sg_id}"]
 }
 
+module "efs" {
+  source ="./modules/efs"
+
+}
+
 terraform {
   backend "s3" {
     bucket = "vim-terraform-backend"
