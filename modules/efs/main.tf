@@ -42,10 +42,9 @@ resource "aws_efs_file_system" "dv10-efs-wp-base" {
 }
 
 resource "aws_efs_mount_target" "dv10-mt-wp-base-efs" {
-  
+    count = 3
     file_system_id  = "${aws_efs_file_system.dv10-efs-wp-base.id}"
-    subnet_id       = "${var.private_subnets[0]}" 
+    subnet_id       = "${var.private_subnets[count.index]}" 
     security_groups = "${var.incoming_sg_ids}"
-   
 }
 
