@@ -1,5 +1,5 @@
 resource "aws_security_group" "dv10-sg-wp-base-efs" { 
-  name        = "dv10-sg-wp-base-alb" //usar prefix
+  name        = "dv10-sg-wp-base-efs" //usar prefix
   description = "Security Group for EFS"
   vpc_id      = "${var.vpc_id}"
 
@@ -9,6 +9,7 @@ resource "aws_security_group" "dv10-sg-wp-base-efs" {
     to_port         = 80
     protocol        = "tcp"
     cidr_blocks     = ["0.0.0.0/0"]
+    security_groups = "${var.incoming_sg_ids}"
   }
 
   egress {

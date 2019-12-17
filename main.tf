@@ -25,6 +25,7 @@ module "ec2" {
 module "efs" {
   source ="./modules/efs"
   vpc_id = "${local.vpc_id}"
+  incoming_sg_ids = ["${module.alb.alb_sg_id}"]
 }
 
 terraform {
