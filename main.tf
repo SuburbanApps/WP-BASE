@@ -20,7 +20,7 @@ module "ec2" {
   incoming_sg_ids = ["${module.alb.alb_sg_id}"]
   key_pair = "${local.key_pair}"
   target_group_arns = ["${module.alb.tg_arn}"]
-}
+  }
 
 module "efs" {
   source ="./modules/efs"
