@@ -24,7 +24,7 @@ module "ec2" {
 
 module "efs" {
   source ="./modules/efs"
-
+  vpc_id = "${local.vpc_id}"
 }
 
 terraform {
