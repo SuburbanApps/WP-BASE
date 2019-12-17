@@ -17,3 +17,8 @@ variable "target_group_arns" {
     description = "List of target group ARNs for the compute resources."
     type = list(string)
 }
+
+variable "key_pair" {
+    description = "Key pair name for SSH access."
+    type = string
+}

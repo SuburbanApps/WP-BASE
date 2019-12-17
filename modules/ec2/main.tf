@@ -30,7 +30,7 @@ resource "aws_launch_template" "dv10-lt-wp-base" {
   name_prefix   = "dv10-lt-wp-base"
   image_id      =   "ami-031de832435c04744"
   instance_type           = "t2.micro"
-  key_name                = "dev-tf-wp-launch-template"
+  key_name                = "${var.key_pair}"
   vpc_security_group_ids = ["${aws_security_group.dv10-sg-wp-base-instances.id}"]
 
   tag_specifications {
