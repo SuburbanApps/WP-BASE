@@ -26,6 +26,7 @@ module "efs" {
   source ="./modules/efs"
   vpc_id = "${local.vpc_id}"
   incoming_sg_ids = ["${module.alb.alb_sg_id}"]
+  private_subnets = "${local.private_subnet_ids}"
 }
 
 terraform {

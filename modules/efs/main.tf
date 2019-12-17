@@ -40,3 +40,21 @@ resource "aws_efs_file_system" "dv10-efs-wp-base" {
         IaC = "Terraform"
     }
 }
+
+resource "aws_efs_mount_target" "dv10-mt-wp-base-efs" {
+  
+    file_system_id  = "${aws_efs_file_system.dv10-efs-wp-base.id}"
+    subnet_id       = "${var.private_subnets}" 
+    description = "MT to EFS."
+    type = list(string)
+    security_groups = "${aws_security_group.dv10-sg-wp-base-efs.id}"
+
+    tags      = {
+        Name = "wp-base"
+        Environment = "Development"
+        SLA = "8x5"
+        Project = "Wordpress Base"
+        IaC = "Terraform"
+    }
+}
+
