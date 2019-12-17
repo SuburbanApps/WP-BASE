@@ -1,8 +1,6 @@
 resource "aws_efs_file_system" "dv10-efs-wp-base" {
   creation_token = "Efs Wordpress Test"
 
-   tag_specifications {
-    resource_type = "EFS"
     tags          = {
         Name = "wp-base"
         Environment = "Development"
@@ -10,5 +8,4 @@ resource "aws_efs_file_system" "dv10-efs-wp-base" {
         Project = "Wordpress Base"
         IaC = "Terraform"
     }
-   }
 }
