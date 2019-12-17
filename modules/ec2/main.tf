@@ -63,3 +63,15 @@ resource "aws_launch_template" "dv10-lt-wp-base" {
         IaC = "Terraform"
   }
 }
+
+resource "aws_autoscaling_group" "dv10-asg-wp-base" {
+  availability_zones = ["eu-west-1a"]
+  desired_capacity   = 1
+  max_size           = 1
+  min_size           = 1
+
+  launch_template {
+    id      = "${aws_launch_template.dv10-lt-wp-base.id}"
+    version = "$Latest"
+  }
+}
