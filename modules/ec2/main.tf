@@ -71,6 +71,8 @@ resource "aws_autoscaling_group" "dv10-asg-wp-base" {
   vpc_zone_identifier       = "${var.private_subnets}"
   target_group_arns = "${var.target_group_arns}"
 
+  health_check_type = "EC2" // temporalmente para las pruebas
+
   launch_template {
     id      = "${aws_launch_template.dv10-lt-wp-base.id}"
     version = "$Latest"
