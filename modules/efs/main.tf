@@ -26,7 +26,7 @@ resource "aws_security_group" "dv10-sg-wp-base-efs" {
   }
 }
    
-}
+
 resource "aws_efs_file_system" "dv10-efs-wp-base" {
   creation_token = "Efs Wordpress Test"
   
