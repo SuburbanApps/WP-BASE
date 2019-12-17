@@ -69,7 +69,7 @@ resource "aws_autoscaling_group" "dv10-asg-wp-base" {
   desired_capacity   = 1
   max_size           = 1
   min_size           = 1
-  vpc_zone_identifier       = ["${var.public_subnets}"]
+  #vpc_zone_identifier       = ["${var.public_subnets}"]
 
   launch_template {
     id      = "${aws_launch_template.dv10-lt-wp-base.id}"
