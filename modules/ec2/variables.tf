@@ -8,7 +8,7 @@ variable "incoming_sg_ids" {
     type = list(string)
 }
 
-variable "public_subnets" {
-    description = "VPC Public Subnets where the ALB resources will be created."
+variable "private_subnets" {
+    description = "VPC Private Subnets where the compute resources will be created."
     type = list(string)
 }

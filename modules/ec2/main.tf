@@ -65,14 +65,21 @@ resource "aws_launch_template" "dv10-lt-wp-base" {
 }
 
 resource "aws_autoscaling_group" "dv10-asg-wp-base" {
-  availability_zones = ["eu-west-1a"]
   desired_capacity   = 1
   max_size           = 1
   min_size           = 1
-  vpc_zone_identifier       = ["${var.public_subnets}"]
+  vpc_zone_identifier       = "${var.private_subnets}"
 
   launch_template {
     id      = "${aws_launch_template.dv10-lt-wp-base.id}"
     version = "$Latest"
+  }
+
+    tags = {
+        Name = "dv10-asg-wp-base"
+        Environment = "Development"
+        SLA = "8x5"
+        Project = "Wordpress Base"
+        IaC = "Terraform"
   }
 }
