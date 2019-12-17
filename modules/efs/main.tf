@@ -1,7 +1,7 @@
 resource "aws_security_group" "dv10-sg-wp-base-efs" { 
   name        = "sg-wp-base-efs" // hacer con variables
   description = "SG for WP BASE EFS"
-  vpc_id      = "${local.vpc_id}"
+  vpc_id      = "${var.vpc_id}"
    
 }
 resource "aws_efs_file_system" "dv10-efs-wp-base" {
