@@ -74,12 +74,4 @@ resource "aws_autoscaling_group" "dv10-asg-wp-base" {
     id      = "${aws_launch_template.dv10-lt-wp-base.id}"
     version = "$Latest"
   }
-
-    tags = {
-        Name = "dv10-asg-wp-base"
-        Environment = "Development"
-        SLA = "8x5"
-        Project = "Wordpress Base"
-        IaC = "Terraform"
-  }
 }
