@@ -69,12 +69,13 @@ resource "aws_autoscaling_group" "dv10-asg-wp-base" {
   max_size           = 1
   min_size           = 1
   vpc_zone_identifier       = "${var.private_subnets}"
+  target_group_arns = "${var.target_group_arns}"
 
   launch_template {
     id      = "${aws_launch_template.dv10-lt-wp-base.id}"
     version = "$Latest"
   }
-  
+
   tags = [
     {
       key                 = "Name"

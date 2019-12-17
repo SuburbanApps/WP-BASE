@@ -12,3 +12,8 @@ variable "private_subnets" {
     description = "VPC Private Subnets where the compute resources will be created."
     type = list(string)
 }
+
+variable "target_group_arns" {
+    description = "List of target group ARNs for the compute resources."
+    type = list(string)
+}

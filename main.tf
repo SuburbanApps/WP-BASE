@@ -18,6 +18,7 @@ module "ec2" {
   private_subnets = "${local.private_subnet_ids}"
   vpc_id = "${local.vpc_id}"
   incoming_sg_ids = ["${module.alb.alb_sg_id}"]
+  target_group_arns = ["${module.alb.tg_arn}"]
 }
 
 module "efs" {
