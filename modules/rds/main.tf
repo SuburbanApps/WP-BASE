@@ -8,7 +8,7 @@ resource "aws_db_instance" "dv10-db-wp-base" {
   #db_subnet_group_name    = "${aws_db_subnet_group." hacer variable
   username                = "root" #"${var.user_db}"
   password                = "12345678" #"${var.pwd_db}"
-  #vpc_security_group_ids  = ["${aws_security_group.id}"]
+  vpc_security_group_ids  = ["${aws_security_group.dv10-sg-wp-base-rds.id}"]
   skip_final_snapshot     = true
   multi_az                = "${var.az_select}"
   max_allocated_storage = 100
