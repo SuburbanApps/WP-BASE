@@ -8,6 +8,10 @@ variable "private_subnets" {
     type = list(string)
 }
 
+variable "vpc_id" {
+    description = "VPC ID where the ALB resources will be created."
+    type = "string"
+}
 
 #variable user_db" {
     #description = "User will be db instance created."

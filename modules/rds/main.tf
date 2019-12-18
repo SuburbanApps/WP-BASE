@@ -19,3 +19,19 @@ resource "aws_db_subnet_group" "dv10-sbg-wp-base" {
   subnet_ids = "${var.private_subnets}"
 
 }
+
+resource "aws_security_group" "dv10-sg-wp-base-rds" { // myportal Instances security group
+  name        = "sg-rds-w`-base"
+  description = "SG for TPZCom RDS"
+  vpc_id      = "${var.vpc_id}"
+
+  ingress {
+    description     = "From Myportal Instances"
+    from_port       = 3306
+    to_port         = 3306
+    protocol        = "tcp"
+    security_groups = ["${aws_security_group.MyportalInstanceSecurityGroup.id}"]
+
+  }
+
+}
