@@ -31,8 +31,8 @@ module "efs" {
 
 module "rds" {
   source ="./modules/rds"
-  user_db = "${resource.aws_ssm_parameter.user_db.value}"
-  pwd_db = "${resource.aws_ssm_parameter.pwd_db.value}"
+  username = "${resource.aws_ssm_parameter.user_db.value}"
+  password = "${resource.aws_ssm_parameter.pwd_db.value}"
   #az_select  = "${local.az_select}" 
   #vpc_id = "${local.vpc_id}"
   #incoming_sg_ids = ["${module.alb.alb_sg_id}"]
