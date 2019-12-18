@@ -16,6 +16,6 @@ resource "aws_db_instance" "dv10-db-wp-base" {
 
 resource "aws_db_subnet_group" "dv10-sbg-wp-base" {
   name       = "Subnet-Groups-WP"
-  subnet_ids = ["${var.private_subnets.index[0]}", "${var.private_subnets_ids.index[1]}","${var.private_subnets_ids.index[2]}"]
+  subnet_ids = ["${var.private_subnets.index[0]}", "${var.private_subnets.index[1]}","${var.private_subnets.index[2]}"]
 
 }
