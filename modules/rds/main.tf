@@ -13,6 +13,13 @@ resource "aws_db_instance" "dv10-db-wp-base" {
   multi_az                = "${var.az_select}"
   max_allocated_storage = 100
   db_subnet_group_name = "${aws_db_subnet_group.dv10-sbg-wp-base.id}"
+
+  tags = {
+    Name = "wp-base-rds" //crear variable
+    Environment = "Development"
+    Project = "Wordpress Base"
+    IaC = "Terraform"
+  }
 }
 
 resource "aws_db_subnet_group" "dv10-sbg-wp-base" {
