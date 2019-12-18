@@ -3,7 +3,7 @@ resource "aws_db_instance" "dv10-db-wp-base" {
   allocated_storage       = 20
   storage_type            = "gp2"
   engine                  = "MariaDB"
-  name                    = "WP Base de Datos" #hacer variable
+  name                    = "WPdb" #hacer variable
   identifier              = "db-wp-test" ##hacer variable
   #db_subnet_group_name    = "${aws_db_subnet_group." hacer variable
   username                = "root" #"${var.user_db}"
