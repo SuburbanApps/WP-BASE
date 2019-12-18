@@ -31,8 +31,6 @@ module "efs" {
 
 module "rds" {
   source ="./modules/rds"
-  #user_db =  "${local.user_db}"
-  #pwd_db =  "${local.pwd_db}"
   #az_select  = "${local.az_select}" 
   #vpc_id = "${local.vpc_id}"
   #incoming_sg_ids = ["${module.alb.alb_sg_id}"]
