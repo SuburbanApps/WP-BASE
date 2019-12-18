@@ -11,12 +11,12 @@ variable "private_subnets" {
     type = list(string)
 }
 
-variable "user_db" {
-  type = "string"
-  description = "Usuario admin por defecto"
+#variable "user_db" {
+  #type = "string"
+  #description = "Usuario admin por defecto"
 }
 
-variable "pwd_db" {
-  type = string
-  description = "Password por defecto"
-}
+#variable "pwd_db" {
+  #type = string
+  #description = "Password por defecto"
+#}

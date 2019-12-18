@@ -1,3 +1,13 @@
+
+
+data "aws_ssm_parameter" "user_db" {
+  name = "myportal-rdsMaster"
+}
+data "aws_ssm_parameter" "pwd_db" {
+  name = "myportal-rdsUser"
+}
+
+
 resource "aws_db_instance" "dv10-db-wp-base" { 
   instance_class          = "db.t3.medium"
   allocated_storage       = 20
