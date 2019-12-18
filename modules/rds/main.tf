@@ -13,3 +13,10 @@ resource "aws_db_instance" "dv10-db-wp-base" {
   multi_az                = "${var.az_select}"
   max_allocated_storage = 100
 }
+
+resource "aws_db_subnet_group" "dv10-sbg-wp-base" {
+  name       = "Sb-groups-WP"
+  subnet_ids = "${var.private_subnets[0]}"
+
+  
+}
