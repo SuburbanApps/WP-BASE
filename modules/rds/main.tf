@@ -20,17 +20,17 @@ resource "aws_db_subnet_group" "dv10-sbg-wp-base" {
 
 }
 
-resource "aws_security_group" "dv10-sg-wp-base-rds" { // myportal Instances security group
+resource "aws_security_group" "dv10-sg-wp-base-rds" {
   name        = "sg-rds-w`-base"
-  description = "SG for TPZCom RDS"
+  description = "SG for RDS"
   vpc_id      = "${var.vpc_id}"
 
   ingress {
-    description     = "From Myportal Instances"
+    description     = "From WP Instances"
     from_port       = 3306
     to_port         = 3306
     protocol        = "tcp"
-    security_groups = ["${aws_security_group.MyportalInstanceSecurityGroup.id}"]
+    security_groups = ["${aws_security_group.dv10-sg-wp-base-instances.id}"]
 
   }
 
