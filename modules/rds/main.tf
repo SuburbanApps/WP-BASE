@@ -26,6 +26,13 @@ resource "aws_db_subnet_group" "dv10-sbg-wp-base" {
   name       = "subnet-groups-wp"
   subnet_ids = "${var.private_subnets}"
 
+  tags = {
+    Name = "sbg-wp-base-rds" //crear variable
+    Environment = "Development"
+    Project = "Wordpress Base"
+    IaC = "Terraform"
+  }
+
 }
 
 resource "aws_security_group" "dv10-sg-wp-base-rds" {
@@ -33,6 +40,7 @@ resource "aws_security_group" "dv10-sg-wp-base-rds" {
   description = "SG for RDS"
   vpc_id      = "${var.vpc_id}"
 
+  
   ingress {
     description     = "HTTP from internet"
     from_port       = 80
