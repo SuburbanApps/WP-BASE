@@ -1,16 +1,3 @@
-
-
-resource "aws_ssm_parameter" "user_db" {
-  name  = "User DB"
-  type  = "String"
-  value = "bar"
-}
-resource "aws_ssm_parameter" "pwd_db" {
-  name  = "PASSWORD"
-  type  = "String"
-  value = "bar"
-}
-
 resource "aws_db_instance" "dv10-db-wp-base" { 
   instance_class          = "db.t3.medium"
   allocated_storage       = 20
