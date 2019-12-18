@@ -21,7 +21,7 @@ resource "aws_db_subnet_group" "dv10-sbg-wp-base" {
 }
 
 resource "aws_security_group" "dv10-sg-wp-base-rds" {
-  name        = "sg-rds-w`-base"
+  name        = "sg-rds-wp-base"
   description = "SG for RDS"
   vpc_id      = "${var.vpc_id}"
 
