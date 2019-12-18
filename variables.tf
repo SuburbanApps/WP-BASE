@@ -6,9 +6,9 @@ locals {
   public_subnet_ids = ["subnet-c009eb9b","subnet-971cb9f0","subnet-48d67401"]
   key_pair = "dv10-wp-base"
   
-  user_db = "root"
+  #user_db = "root"
 
-  pwd_db = "123456789"
+  #pwd_db = "123456789"
 
     
 }
