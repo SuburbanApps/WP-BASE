@@ -8,7 +8,6 @@ variable "private_subnets" {
     type = list(string)
 }
 
-
 #variable user_db" {
     #description = "User will be db instance created."
     #type = string
