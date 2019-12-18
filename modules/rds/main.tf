@@ -21,7 +21,7 @@ resource "aws_db_subnet_group" "dv10-sbg-wp-base" {
 }
 
 resource "aws_security_group" "dv10-sg-wp-base-rds" {
-  name        = "sg-rds-wp-base"
+  name        = "sgrdswpbase"
   description = "SG for RDS"
   vpc_id      = "${var.vpc_id}"
 
@@ -41,7 +41,7 @@ resource "aws_security_group" "dv10-sg-wp-base-rds" {
   }
 
   tags = {
-    Name = "dv10-sg-wp-base-rds"
+    Name = "dv10-sg-wp-base-rds" //crear variable
     Environment = "Development"
     Project = "Wordpress Base"
     IaC = "Terraform"
