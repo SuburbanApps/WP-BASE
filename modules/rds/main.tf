@@ -18,10 +18,10 @@ resource "aws_db_instance" "dv10-db-wp-base" {
   engine                  = "MariaDB"
   name                    = "WP Base de Datos" #hacer variable
   identifier              = "db-wp-test" ##hacer variable
-  #db_subnet_group_name    = "${aws_db_subnet_group.MyportalRDSSubnetGroup.id}"
+  #db_subnet_group_name    = "${aws_db_subnet_group." hacer variable
   username                = "${var.user_db}"
   password                = "${var.pwd_db}"
-  #vpc_security_group_ids  = ["${aws_security_group.MyportalRDSSecurityGroup.id}"]
+  #vpc_security_group_ids  = ["${aws_security_group.id}"]
   skip_final_snapshot     = true
   multi_az                = "${var.az_select}"
   max_allocated_storage = 100

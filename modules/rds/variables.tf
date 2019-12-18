@@ -1,10 +1,9 @@
 #
 
 variable "az_select" {
-
-    default = false # true in live.
-
-}
+    
+    default = false
+    }
 
 variable "private_subnets" {
     description = "VPC Private Subnets where the compute resources will be created."
