@@ -1,7 +1,5 @@
-#
 
 variable "az_select" {
-    
     default = false
     }
 
@@ -10,16 +8,16 @@ variable "private_subnets" {
     type = list(string)
 }
 
-variable user_db" {
-    description = "User will be db instance created."
-    type = string
-    default = "root"
-}
+#variable user_db" {
+    #description = "User will be db instance created."
+    #type = string
+    #default = "root"
+#}
 
-variable pwd_db" {
-    description = "Password will be db instance created."
-    type = string
-    default = "12345678"
-}
+#variable pwd_db" {
+    #description = "Password will be db instance created."
+    #type = string
+    #default = "12345678"
+#}
 
 
