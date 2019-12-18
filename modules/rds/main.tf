@@ -1,8 +1,3 @@
-data "aws_ssm_parameter" "dv10-master-pwd-wp-base-rds" {
-  name = "WP-rdsMaster"
-  value = "12345678"
-}
-
 resource "aws_db_instance" "dv10-db-wp-base" { 
   instance_class          = "db.t3.medium"
   allocated_storage       = 20
@@ -12,7 +7,7 @@ resource "aws_db_instance" "dv10-db-wp-base" {
   identifier              = "db-wp-test" ##hacer variable
   #db_subnet_group_name    = "${aws_db_subnet_group." hacer variable
   username                = "root"
-  password                = "${data.aws_ssm_parameter.dv10-master-pwd-wp-base-rds.value}"
+  password                = "12345678"
   vpc_security_group_ids  = ["${aws_security_group.dv10-sg-wp-base-rds.id}"]
   skip_final_snapshot     = true
   multi_az                = "${var.az_select}"
