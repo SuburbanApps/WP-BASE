@@ -13,12 +13,12 @@ variable "private_subnets" {
 
 variable user_db" {
     description = "User will be db instance created."
-    type ="string"
+    type = string
 }
 
 variable pwd_db" {
     description = "Password will be db instance created."
-    type = "string"
+    type = string
 }
 
 
