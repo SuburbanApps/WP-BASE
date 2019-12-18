@@ -14,7 +14,7 @@ variable "private_subnets" {
 #variable "user_db" {
   #type = "string"
   #description = "Usuario admin por defecto"
-}
+#}
 
 #variable "pwd_db" {
   #type = string
