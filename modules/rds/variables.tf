@@ -12,11 +12,11 @@ variable "private_subnets" {
 }
 
 variable "user_db" {
-  default = "admin"
+  type = "string"
   description = "Usuario admin por defecto"
 }
 
 variable "pwd_db" {
-  default = "admin123456"
+  type = string
   description = "Password por defecto"
 }
