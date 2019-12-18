@@ -12,7 +12,7 @@ resource "aws_db_instance" "dv10-db-wp-base" {
   skip_final_snapshot     = true
   multi_az                = "${var.az_select}"
   max_allocated_storage = 100
-  db_subnet_group_name ="${aws_db_subnet_group.dv10-sbg-wp-base-rds.id}"
+  db_subnet_group_name = "${aws_db_subnet_group.dv10-sbg-wp-base-rds.id}"
 }
 
 resource "aws_db_subnet_group" "dv10-sbg-wp-base" {
