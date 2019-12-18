@@ -11,3 +11,14 @@ variable "private_subnets" {
     type = list(string)
 }
 
+variable user_db" {
+    description = "User will be db instance created."
+    type ="string"
+}
+
+variable pwd_db" {
+    description = "Password will be db instance created."
+    type = "string"
+}
+
+
