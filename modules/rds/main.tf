@@ -1,5 +1,6 @@
 data "aws_ssm_parameter" "dv10-master-pwd-wp-base-rds" {
   name = "WP-rdsMaster"
+  value = "12345678"
 }
 
 resource "aws_db_instance" "dv10-db-wp-base" { 
