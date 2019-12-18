@@ -41,7 +41,7 @@ resource "aws_security_group" "dv10-sg-wp-base-rds" {
   }
 
   tags = {
-    Name = "dv10-sg-wp-base-alb"
+    Name = "dv10-sg-wp-base-rds"
     Environment = "Development"
     Project = "Wordpress Base"
     IaC = "Terraform"
