@@ -29,6 +29,14 @@ module "efs" {
   private_subnets = "${local.private_subnet_ids}"
 }
 
+module "rds" {
+  source ="./modules/efs"
+  local.az_select  = "${local.az_select}" 
+  #vpc_id = "${local.vpc_id}"
+  #incoming_sg_ids = ["${module.alb.alb_sg_id}"]
+  #private_subnets = "${local.private_subnet_ids}"
+}
+
 terraform {
   backend "s3" {
     bucket = "vim-terraform-backend"
