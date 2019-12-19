@@ -32,6 +32,7 @@ resource "aws_launch_template" "dv10-lt-wp-base" {
   instance_type = "t2.micro"
   key_name = "${var.key_pair}"
   vpc_security_group_ids = ["${aws_security_group.dv10-sg-wp-base-instances.id}"]
+  user_data               = "${base64encode(data.template_file.dv10-userdata-wp-base.rendered)}"
 
   tag_specifications {
     resource_type = "instance"
