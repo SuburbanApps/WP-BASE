@@ -126,5 +126,5 @@ resource "aws_autoscaling_schedule" "dv10-asg-wp-base-sheduleUp" {
   min_size                = 1
   max_size                = 2
   desired_capacity        = 1
-  autoscaling_group_name  = "${aws_autoscaling_group.dv10-asg-wp-base-sheduleUp.name}"
+  autoscaling_group_name  = "${aws_autoscaling_group.dv10-asg-wp-base.name}"
 }
