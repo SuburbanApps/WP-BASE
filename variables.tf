@@ -8,9 +8,7 @@ locals {
   public_subnet_ids = ["subnet-c009eb9b","subnet-971cb9f0","subnet-48d67401"]
   key_pair = "dv10-wp-base"
 
-  env {
-
-  environment_name = {
+    environment_name = {
       dev     = "Development"
       staging = "Staging"
       live    = "Live"
@@ -21,7 +19,7 @@ locals {
       staging = "st10"
       live    = "lv10"
     }
-}
-  
-  }
+
+} 
+
 
