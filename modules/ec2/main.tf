@@ -64,7 +64,7 @@ resource "aws_launch_template" "dv10-lt-wp-base" {
   }
 }
 data "template_file" "dv10-userdata-wp-base" {
-  template = "${file("templates/userdata.sh")}"
+  template = "${file("../templates/userdata.sh")}"
   vars = {
     aws_region        = "eu-west-1"
     environment_name  = "dev"
