@@ -1,4 +1,5 @@
 #!/bin/bash
+
 #yum update -y
 #amazon-linux-extras install -y lamp-mariadb10.2-php7.2 php7.2
 #yum install -y httpd mariadb-server
@@ -11,7 +12,6 @@
 #find /var/www -type f -exec chmod 0664 {} \;
 #echo "<?php phpinfo(); ?>" > /var/www/html/phpinfo.php
 
-#!/bin/bash
 
 mkdir ~/.aws
 touch ~/.aws/config
