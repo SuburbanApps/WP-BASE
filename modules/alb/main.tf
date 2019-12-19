@@ -1,5 +1,5 @@
 resource "aws_security_group" "dv10-sg-wp-base-alb" {
-  name        = "dv10-sg-wp-base-alb"
+  name        =  "${local.environment_prefix}-sg-wp-base-alb"
   description = "Security Group for Application Load Balancer"
   vpc_id      = "${var.vpc_id}"
 
@@ -27,7 +27,7 @@ resource "aws_security_group" "dv10-sg-wp-base-alb" {
 }
 
 resource "aws_lb" "dv10-alb-wp-base" { // WP Empleo Public ALB
-  name               = "dv10-alb-wp-base"
+  name               = "${local.environment_prefix}-alb-wp-base"
   internal           = false
   load_balancer_type = "application"
   security_groups    = ["${aws_security_group.dv10-sg-wp-base-alb.id}"]
@@ -42,7 +42,7 @@ resource "aws_lb" "dv10-alb-wp-base" { // WP Empleo Public ALB
 }
 
 resource "aws_lb_target_group" "dv10-tg-wp-base" { //WP Empleo Target Group
-  name        = "dv10-tg-wp-base"
+  name        = "${local.environment_prefix}-tg-wp-base"
   port        = "80"
   protocol    = "HTTP"
   target_type = "instance"
