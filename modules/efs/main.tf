@@ -1,5 +1,5 @@
 resource "aws_security_group" "dv10-sg-wp-base-efs" { 
-  name        = "sg-wp-base-efs" ##${local.environment_prefix}-
+  name        = "sgwpbaseefs" ##${local.environment_prefix}-
   description = "Security Group for EFS"
   vpc_id      = "${var.vpc_id}"
 

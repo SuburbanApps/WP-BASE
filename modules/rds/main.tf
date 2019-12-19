@@ -23,7 +23,7 @@ resource "aws_db_instance" "dv10-db-wp-base" {
 }
 
 resource "aws_db_subnet_group" "dv10-sbg-wp-base" {
-  name       = "subnet-groups-wp-base" ##${local.environment_prefix}-
+  name       = "subnetgroupswpbase" ##${local.environment_prefix}-
   subnet_ids = "${var.private_subnets}"
 
   tags = {
