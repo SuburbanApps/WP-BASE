@@ -63,7 +63,18 @@ resource "aws_launch_template" "dv10-lt-wp-base" {
         IaC = "Terraform"
   }
 }
-
+data "template_file" "dv10-userdata-wp-base" {
+  template = "${file("templates/userdata.sh")}"
+  vars = {
+    aws_region        = "eu-west-1"
+    environment_name  = "dev"
+    rds_dnsname       = "${aws_db_instance.dv10-db-wp-base.address}"
+    #shared_account_id = "${local.aws_shared_accountid}"
+    rds_user          = "dev-rds-user"
+    rds_root_password = "12345678"
+    rds_user_password = "12345678"  
+  }
+}
 resource "aws_autoscaling_group" "dv10-asg-wp-base" {
   desired_capacity   = 1
   max_size           = 1
