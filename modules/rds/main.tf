@@ -36,7 +36,7 @@ resource "aws_db_subnet_group" "dv10-sbg-wp-base" {
 }
 
 resource "aws_security_group" "dv10-sg-wp-base-rds" {
-  name        = "sg-wp-base-rds" ##${local.environment_prefix}-
+  name        = "sgwpbaserds" ##${local.environment_prefix}-
   description = "SG for RDS"
   vpc_id      = "${var.vpc_id}"
 
