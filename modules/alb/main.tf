@@ -1,5 +1,5 @@
 resource "aws_security_group" "dv10-sg-wp-base-alb" {
-  name        =  "${local.environment_prefix}-sg-wp-base-alb"
+  name        =  "sg-wp-base-alb" #${local.environment_prefix}-
   description = "Security Group for Application Load Balancer"
   vpc_id      = "${var.vpc_id}"
 
@@ -25,9 +25,14 @@ resource "aws_security_group" "dv10-sg-wp-base-alb" {
     IaC = "Terraform"
   }
 }
-
+#tags = "${merge(
+    #local.wp_base_common_tags,
+    #map(
+      #"Name", "${local.environment_prefix}-wpmyportal-alb"
+    #)
+  #)}
 resource "aws_lb" "dv10-alb-wp-base" { // WP Empleo Public ALB
-  name               = "${local.environment_prefix}-alb-wp-base"
+  name               = "alb-wp-base" ##${local.environment_prefix}-
   internal           = false
   load_balancer_type = "application"
   security_groups    = ["${aws_security_group.dv10-sg-wp-base-alb.id}"]
@@ -42,7 +47,7 @@ resource "aws_lb" "dv10-alb-wp-base" { // WP Empleo Public ALB
 }
 
 resource "aws_lb_target_group" "dv10-tg-wp-base" { //WP Empleo Target Group
-  name        = "${local.environment_prefix}-tg-wp-base"
+  name        = "tg-wp-base" ##${local.environment_prefix}-
   port        = "80"
   protocol    = "HTTP"
   target_type = "instance"
@@ -72,7 +77,7 @@ resource "aws_lb_target_group" "dv10-tg-wp-base" { //WP Empleo Target Group
 
 }
 
-resource "aws_lb_listener" "dv10-listener-wp-base" { // WP Empleo 443 listener 
+resource "aws_lb_listener" "dv10-listener-wp-base" {
   load_balancer_arn = "${aws_lb.dv10-alb-wp-base.id}"
   port              = "80"
   protocol          = "HTTP"

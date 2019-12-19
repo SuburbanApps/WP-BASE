@@ -1,5 +1,5 @@
 resource "aws_security_group" "dv10-sg-wp-base-instances" {
-  name        = "${local.environment_prefix}-sg-wp-base-instances"
+  name        = "sg-wp-base-instances" ##${local.environment_prefix}-
   description = "Security Group Instances"
   vpc_id      = "${var.vpc_id}"
 
@@ -27,7 +27,7 @@ resource "aws_security_group" "dv10-sg-wp-base-instances" {
 }
 
 resource "aws_launch_template" "dv10-lt-wp-base" {
-  name_prefix = "${local.environment_prefix}-lt-wp-base"
+  name_prefix = "lt-wp-base" #${local.environment_prefix}-
   image_id  =  "ami-01f14919ba412de34"
   instance_type = "t2.micro"
   key_name = "${var.key_pair}"

@@ -3,7 +3,7 @@ resource "aws_db_instance" "dv10-db-wp-base" {
   allocated_storage       = 20
   storage_type            = "gp2"
   engine                  = "MariaDB"
-  name                    = "${local.environment_prefix}-WPdb" #hacer variable
+  name                    = "WPdb" #hacer variable #${local.environment_prefix}-
   identifier              = "db-wp-test" ##hacer variable
   #db_subnet_group_name    = "${aws_db_subnet_group." hacer variable
   username                = "root"
@@ -23,7 +23,7 @@ resource "aws_db_instance" "dv10-db-wp-base" {
 }
 
 resource "aws_db_subnet_group" "dv10-sbg-wp-base" {
-  name       = "${local.environment_prefix}-subnet-groups-wp-base"
+  name       = "subnet-groups-wp-base" ##${local.environment_prefix}-
   subnet_ids = "${var.private_subnets}"
 
   tags = {
@@ -36,7 +36,7 @@ resource "aws_db_subnet_group" "dv10-sbg-wp-base" {
 }
 
 resource "aws_security_group" "dv10-sg-wp-base-rds" {
-  name        = "${local.environment_prefix}-sg-wp-base-rds"
+  name        = "sg-wp-base-rds" ##${local.environment_prefix}-
   description = "SG for RDS"
   vpc_id      = "${var.vpc_id}"
 
