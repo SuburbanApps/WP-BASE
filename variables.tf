@@ -2,6 +2,9 @@
 
 locals {
 
+  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
+  environment_name            = "${lookup(local.env.environment_name, terraform.workspace)}"
+
   aws_region = "eu-west-1"
   vpc_id = "vpc-dc76d7bb"
   private_subnet_ids = ["subnet-650ae83e", "subnet-ea19bc8d" , "subnet-c9cd6f80"]
