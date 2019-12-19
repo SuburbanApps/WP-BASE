@@ -118,3 +118,13 @@ resource "aws_autoscaling_group" "dv10-asg-wp-base" {
     }
   ]
 }
+
+resource "aws_autoscaling_schedule" "dv10-asg-wp-base-sheduleUp" { 
+  count                   = "1"
+  scheduled_action_name   = "asg-wp-base-sheduleUp"
+  recurrence              = "0 6 * * MON-FRI"
+  min_size                = 1
+  max_size                = 2
+  desired_capacity        = 1
+  autoscaling_group_name  = "${aws_autoscaling_group.dv10-asg-wp-base-sheduleUp.name}"
+}

@@ -17,7 +17,7 @@ mkdir ~/.aws
 touch ~/.aws/config
 
 echo "#########################################"
-echo "### USERDATA FOR WORDPRESS - MYPORTAL ###"
+echo "### USERDATA FOR WORDPRESS - WORDPRESS IAC ###"
 echo "#########################################"
 
 # Changing hostname
