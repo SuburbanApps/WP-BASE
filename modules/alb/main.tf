@@ -31,7 +31,7 @@ resource "aws_security_group" "dv10-sg-wp-base-alb" {
       #"Name", "${local.environment_prefix}-wpmyportal-alb"
     #)
   #)}
-resource "aws_lb" "dv10-alb-wp-base" { // WP Empleo Public ALB
+resource "aws_lb" "dv10-alb-wp-base" {
   name               = "albwpbase" ##${local.environment_prefix}-
   internal           = false
   load_balancer_type = "application"
