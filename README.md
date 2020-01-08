@@ -32,5 +32,9 @@ Tener instalado en un nuestro equipo local la última versión de Terraform. Act
 # Despliegue de la infraestructura.
 *   **1. Iniciar nuestro Backend de Terraform**
     - terraform init
-     Si todo va bien veriamos un mensaje parecido a este:
-     Successfully configured the backend "s3"! Terraform will automatically use this backend unless the backend configuration changes.
+*   **2. Ejecutar plan**
+    - terraform plan
+*   **3. Aplicar infraestructura**
+    - terraform apply
+*    **4. Destruir infraestructura**
+    - terraform apply
