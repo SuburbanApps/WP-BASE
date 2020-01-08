@@ -30,11 +30,11 @@ Tener instalado en un nuestro equipo local la última versión de Terraform. Act
     - **"aws_db_subnet_group"** -> grupo que dispondra de acceso a la DB.
     - **"aws_security_group"** -> Security Group de nuestra DB.
 # Despliegue de la infraestructura.
-*   **1. Iniciar nuestro Backend de Terraform**
+*    **1. Iniciar nuestro Backend de Terraform**
     - terraform init
-*   **2. Ejecutar plan**
+*    **2. Ejecutar plan**
     - terraform plan
-*   **3. Aplicar infraestructura**
+*    **3. Aplicar infraestructura**
     - terraform apply
 *    **4. Destruir infraestructura**
-    - terraform apply
+    - terraform destroy
