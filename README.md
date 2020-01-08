@@ -1,8 +1,8 @@
 # Comenzando.
 Este proyecto desplegará en un entorno de desarrollo una infraestructura wordpress de alta disponibilidad. Usaremos Terraform para la configuración de la infraestructura y Azure Devops para el despliegue automático.
-# Requisitos previos.
+# **Requisitos previos**.
 Tener instalado en un nuestro equipo local la última versión de Terraform. Actualmente la última versión estable es la 0.12.18.
-*	Instalar Terraform:
+*	**Instalar Terraform:**
     * apt-get update
     * wget https://releases.hashicorp.com/terraform/0.12.7/terraform_0.12.18_linux_amd64.zip
     * unzip terraform_0.12.7_linux_amd64.zip
@@ -10,8 +10,13 @@ Tener instalado en un nuestro equipo local la última versión de Terraform. Act
 *   Comprobar instalación de Terraform:
     * terraform --version 
 # Módulos y recursos.
-* ALB: módulo de configuración del Balanceador de nuestra infra. Contendra los siguientes recursos:
-    - osdf
+* **Módulo alb**: módulo de configuración del Balanceador de nuestra infra. Contendra los siguientes recursos:
+    - **"aws_alb"** -> Load Balancer.
+    - **"aws_lb_listener"** -> Listener.
+    - **"aws_lb_target_group"** -> Target Group.
+    - **"aws_security_group"** -> Security Group de nuestro Balanceador.
+* Módulo ec2: contendra la configuracion de lanzamiento de nuestras instancias. Contendra los siguientes recursos:
+    - "aws_autoscaling_group" -> Grupo de autoescalado que lanzara la instancia.
 * 
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 
