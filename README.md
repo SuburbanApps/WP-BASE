@@ -37,4 +37,4 @@ Tener instalado en un nuestro equipo local la última versión de Terraform. Act
 *    **3. Aplicar infraestructura**
     - terraform apply
 *    **4. Destruir infraestructura**
-    - terraform destroy
+     terraform destroy
