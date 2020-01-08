@@ -7,8 +7,10 @@ Tener instalado en un nuestro equipo local la última versión de Terraform. Act
     * wget https://releases.hashicorp.com/terraform/0.12.7/terraform_0.12.18_linux_amd64.zip
     * unzip terraform_0.12.7_linux_amd64.zip
     * sudo mv terraform /usr/local/bin/
+
 *   Comprobar instalación de Terraform:
     * terraform --version 
+    
 # Infraestructura Propuesta.
 TODO: Describe and show how to build your code and run the tests. 
 
