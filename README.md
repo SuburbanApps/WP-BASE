@@ -5,7 +5,7 @@ Tener instalado en un nuestro equipo local la última versión de Terraform. Act
 *	**Instalar Terraform:**
     * apt-get update
     * wget https://releases.hashicorp.com/terraform/0.12.7/terraform_0.12.18_linux_amd64.zip
-    * unzip terraform_0.12.7_linux_amd64.zip
+    * unzip terraform_0.12.18_linux_amd64.zip
     * sudo mv terraform /usr/local/bin/
 *   **Comprobar instalación de Terraform:**
     * terraform --version 
@@ -30,4 +30,5 @@ Tener instalado en un nuestro equipo local la última versión de Terraform. Act
     - **"aws_db_subnet_group"** -> grupo que dispondra de acceso a la DB.
     - **"aws_security_group"** -> Security Group de nuestra DB.
 # Despliegue de la infraestructura.
-# **EN PROCESO...**
+*   **Iniciar nuestro Backend de Terraform**
+    - 
