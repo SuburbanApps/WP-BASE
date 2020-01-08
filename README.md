@@ -3,12 +3,12 @@ Este proyecto desplegará en un entorno de desarrollo una infraestructura wordpr
 # **Requisitos previos**.
 Tener instalado en un nuestro equipo local la última versión de Terraform. Actualmente la última versión estable es la 0.12.18.
 *	**Instalar Terraform:**
-    * apt-get update
-    * wget https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip
-    * unzip terraform_0.12.18_linux_amd64.zip
-    * sudo mv terraform /usr/local/bin/
+    - apt-get update
+    - wget https://releases.hashicorp.com/terraform/0.12.18/terraform_0.12.18_linux_amd64.zip
+    - unzip terraform_0.12.18_linux_amd64.zip
+    - sudo mv terraform /usr/local/bin/
 *   **Comprobar instalación de Terraform:**
-    * terraform --version 
+    - terraform --version 
 * **Crear una Dynamo DB y un Bucket en AWS para nuestro Backend.**
 # **Módulos y recursos.**
 * **Módulo alb**: módulo de configuración del Balanceador de nuestra infra. Contendra los siguientes recursos:
@@ -37,4 +37,4 @@ Tener instalado en un nuestro equipo local la última versión de Terraform. Act
 *    **3. Aplicar infraestructura**
     - terraform apply
 *    **4. Destruir infraestructura**
-     terraform destroy
+    - terraform destroy
