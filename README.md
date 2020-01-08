@@ -10,7 +10,7 @@ Tener instalado en un nuestro equipo local la última versión de Terraform. Act
 *   **Comprobar instalación de Terraform:**
     * terraform --version 
 * **Crear una Dynamo DB y un Bucket en AWS para nuestro Backend.**
-# Módulos y recursos.
+# **Módulos y recursos.**
 * **Módulo alb**: módulo de configuración del Balanceador de nuestra infra. Contendra los siguientes recursos:
     - **"aws_alb"** -> Load Balancer.
     - **"aws_lb_listener"** -> Listener.
