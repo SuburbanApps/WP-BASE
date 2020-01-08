@@ -30,5 +30,7 @@ Tener instalado en un nuestro equipo local la última versión de Terraform. Act
     - **"aws_db_subnet_group"** -> grupo que dispondra de acceso a la DB.
     - **"aws_security_group"** -> Security Group de nuestra DB.
 # Despliegue de la infraestructura.
-*   **Iniciar nuestro Backend de Terraform**
-    - 
+*   **1. Iniciar nuestro Backend de Terraform**
+    - terraform init
+     Si todo va bien veriamos un mensaje parecido a este:
+     Successfully configured the backend "s3"! Terraform will automatically use this backend unless the backend configuration changes.
