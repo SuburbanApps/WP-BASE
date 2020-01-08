@@ -2,8 +2,8 @@
 Este proyecto desplegará en un entorno de desarrollo una infraestructura wordpress de alta disponibilidad. Usaremos Terraform para la configuración de la infraestructura y Azure Devops para el despliegue automático.
 # Requisitos previos.
 tener instalado en un nuestro equipo local la última versión de Terraform. Actualmente la última versión estable es la 0.12.18.
-1.	Instalar Terraform.
-#Para instalar Terraform tecleamos los siguientes comandos en nuestra consola de Linux:
+1.	Instalar Terraform:
+apt-get update
 
 2.	Software dependencies
 3.	Latest releases
