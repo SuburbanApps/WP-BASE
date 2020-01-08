@@ -9,10 +9,10 @@ Tener instalado en un nuestro equipo local la última versión de Terraform. Act
     * sudo mv terraform /usr/local/bin/
 *   Comprobar instalación de Terraform:
     * terraform --version 
-    
-# Infraestructura Propuesta.
-TODO: Describe and show how to build your code and run the tests. 
-
+# Módulos y recursos.
+* ALB: módulo de configuración del Balanceador de nuestra infra. Contendra los siguientes recursos:
+    - osdf
+* 
 # Contribute
 TODO: Explain how other users and developers can contribute to make your code better. 
 
