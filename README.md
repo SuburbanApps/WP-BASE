@@ -3,8 +3,8 @@ Este proyecto desplegará en un entorno de desarrollo una infraestructura wordpr
 # Requisitos previos.
 tener instalado en un nuestro equipo local la última versión de Terraform. Actualmente la última versión estable es la 0.12.18.
 1.	Instalar Terraform.
-    Para instalar Terraform tecleamos los siguientes comandos en nuestra consola de Linux:
-    
+Para instalar Terraform tecleamos los siguientes comandos en nuestra consola de Linux:
+
 2.	Software dependencies
 3.	Latest releases
 4.	API references
