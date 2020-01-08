@@ -1,8 +1,10 @@
 # Comenzando
 Este proyecto desplegará en un entorno de desarrollo una infraestructura wordpress de alta disponibilidad. Usaremos Terraform para la configuración de la infraestructura y Azure Devops para el despliegue automático.
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
+# Requisitos previos.
+tener instalado en un nuestro equipo local la última versión de Terraform. Actualmente la última versión estable es la 0.12.18.
+1.	Instalar Terraform.
+    Para instalar Terraform tecleamos los siguientes comandos en nuestra consola de Linux:
+    
 2.	Software dependencies
 3.	Latest releases
 4.	API references
