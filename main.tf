@@ -41,7 +41,7 @@ module "rds" {
 
 }
 
-terraform { #askdjhfjkah
+terraform { 
   backend "s3" {
     bucket = "vim-terraform-backend"
     dynamodb_table = "vim-terraform-backend"
