@@ -1,5 +1,5 @@
 resource "aws_security_group" "dv10-sg-wp-base-alb" {
-  name        =  "sgwpbasealb" #${local.environment_prefix}-
+  name        =  "${local.environment_prefix}"
   description = "Security Group for Application Load Balancer"
   vpc_id      = "${var.vpc_id}"
 
@@ -25,12 +25,12 @@ resource "aws_security_group" "dv10-sg-wp-base-alb" {
     IaC = "Terraform"
   }
 }
-#tags = "${merge(
-    #local.wp_base_common_tags,
-    #map(
-      #"Name", "${local.environment_prefix}-wpmyportal-alb"
-    #)
-  #)}
+tags = "${merge(
+    local.wp_base_common_tags,
+    map(
+      "Name", "${local.environment_prefix}-wpmyportal-alb"
+    )
+  )}
 resource "aws_lb" "dv10-alb-wp-base" {
   name               = "albwpbase" ##${local.environment_prefix}-
   internal           = false
