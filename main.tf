@@ -3,7 +3,7 @@
 
 #Declaramos provider
 
-provider "aws" { # dev branch test
+provider "aws" { 
     region ="eu-west-1"
 }
 
@@ -41,7 +41,7 @@ module "rds" {
 
 }
 
-terraform {
+terraform { #askdjhfjkah
   backend "s3" {
     bucket = "vim-terraform-backend"
     dynamodb_table = "vim-terraform-backend"
