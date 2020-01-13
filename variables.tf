@@ -1,5 +1,6 @@
 # Global variables
 
+
 locals {
 
   #environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
