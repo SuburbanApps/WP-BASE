@@ -14,7 +14,8 @@
             staging = "Staging"
             live    = "Live"
     }
-}
+    }
+ }
  
 resource "aws_security_group" "dv10-sg-wp-base-alb" {
   name        =  "${local.environment_prefix}-sg-wp-base-alb" //error 1
