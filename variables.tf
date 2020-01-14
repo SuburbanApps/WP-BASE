@@ -1,7 +1,7 @@
 # Global variables
 
 locals  {
-   env {
+   env = {
     environment_prefix = {
       dev     = "dv10"
       staging = "st10"
