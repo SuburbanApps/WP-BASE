@@ -18,6 +18,16 @@
    }
   
  }
+
+ variable "environment_prefix" {
+    description = "enviroments"
+    default = {
+      dev     = "dv10"
+      staging = "st10"
+      live    = "lv10"
+    }
+
+    }
  
 resource "aws_security_group" "dv10-sg-wp-base-alb" {
   name        =  "${local.environment_prefix}-sg-wp-base-alb" //error 1
