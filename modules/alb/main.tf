@@ -1,5 +1,8 @@
 locals {
-  Environment = "${local.environment_name}"
+  locals {
+
+  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
+  environment_name            = "${lookup(local.env.environment_name, terraform.workspace)}"
 }
 resource "aws_security_group" "dv10-sg-wp-base-alb" {
   name        =  "${local.environment_prefix}-sg-wp-base-alb"
