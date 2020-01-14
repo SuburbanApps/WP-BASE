@@ -43,8 +43,8 @@ resource "aws_lb" "dv10-alb-wp-base" {
   subnets            = "${var.public_subnets}"
 
   tags = {
-    Name =  "${var.enviroment_prefix.}-wp-base-alb"
-    Environment = "Development"
+    #Name =  "${var.enviroment_prefix.}-wp-base-alb"
+    #Environment = "Development"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
