@@ -1,7 +1,7 @@
 locals {
   Environment = "${local.environment_name}"
 }
-resource "aws_security_group" "dv10-sg-wp-base-alb" 
+resource "aws_security_group" "dv10-sg-wp-base-alb" {
   name        =  "${local.environment_prefix}-sg-wp-base-alb"
   description = "Security Group for Application Load Balancer"
   vpc_id      = "${var.vpc_id}"
