@@ -1,5 +1,5 @@
 resource "aws_security_group" "dv10-sg-wp-base-alb" { #prueba de rama developed
-  name        =  "sgwpbasealb" #${local.environment_prefix}-
+  name        =  "#${local.environment_prefix}-sg-wp-base-alb"
   description = "Security Group for Application Load Balancer"
   vpc_id      = "${var.vpc_id}"
 
