@@ -15,14 +15,14 @@ locals {
       #dev     = "Development"
       #staging = "Staging"
       #live    = "Live"
-    }
-   environment_prefix = {
+    #}
+   #environment_prefix = {
       #dev     = "popotitos"
       #staging = "st10"
       #live    = "lv10"
-    }
+    #}
 
-#} 
+} 
 
 
 
