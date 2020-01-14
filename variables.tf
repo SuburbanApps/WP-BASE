@@ -17,7 +17,7 @@ locals {
       live    = "Live"
     }
    environment_prefix = {
-      dev     = "dv10"
+      dev     = "popotitos"
       staging = "st10"
       live    = "lv10"
     }

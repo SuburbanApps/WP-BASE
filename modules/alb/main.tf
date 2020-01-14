@@ -25,12 +25,6 @@ resource "aws_security_group" "dv10-sg-wp-base-alb"
     IaC = "Terraform"
   }
 }
-tags = "${merge(
-    local.wp_base_common_tags,
-    map(
-      "Name", "${local.environment_prefix}-wp-base-alb"
-    )
-  )
 
 resource "aws_lb" "dv10-alb-wp-base" {
   name               = "${local.environment_prefix}-wp-base-alb"
