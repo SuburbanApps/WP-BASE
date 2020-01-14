@@ -8,7 +8,7 @@ variable "public_subnets" {
     type = list(string)
 }
 
-variable "enviroment.prefix" {
+variable "enviroment_prefix" {
   type = "map"
   default = {
       dev     = "dv10"
