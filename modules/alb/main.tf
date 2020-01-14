@@ -5,7 +5,7 @@
     env = {
   
         environment_prefix = {
-            dev     = "des"
+            dev     = "dv10"
             staging = "st10"
             live    = "lv10"
         }
