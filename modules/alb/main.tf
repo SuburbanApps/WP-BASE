@@ -1,5 +1,5 @@
 variable "environment_prefix" {
-  type = "map"
+  type = "string"
   default = {
       dev     = "dv10"
       staging = "st10"
