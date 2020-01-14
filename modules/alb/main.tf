@@ -1,11 +1,11 @@
-locals {
+
   locals {
 
   environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
   environment_name            = "${lookup(local.env.environment_name, terraform.workspace)}"
 }
 resource "aws_security_group" "dv10-sg-wp-base-alb" {
-  name        =  "${local.environment_prefix}-sg-wp-base-alb"
+  name        =  "${local.environment_prefix}-sg-wp-base-alb" //error 1
   description = "Security Group for Application Load Balancer"
   vpc_id      = "${var.vpc_id}"
 
@@ -33,7 +33,7 @@ resource "aws_security_group" "dv10-sg-wp-base-alb" {
 }
 
 resource "aws_lb" "dv10-alb-wp-base" {
-  name               = "${local.environment_prefix}-wp-base-alb"
+  name               = "${local.environment_prefix}-wp-base-alb" //error 2
   internal           = false
   load_balancer_type = "application"
   security_groups    = ["${aws_security_group.dv10-sg-wp-base-alb.id}"]
