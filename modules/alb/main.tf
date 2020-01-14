@@ -36,7 +36,7 @@ resource "aws_security_group" "dv10-sg-wp-base-alb" {
 }
 
 resource "aws_lb" "dv10-alb-wp-base" {
-  name               = "${var.environment_prefix}-wp-base-alb" //error 2
+  name               = "${var.environment_prefix}-wp-base-alb" //error 3
   internal           = false
   load_balancer_type = "application"
   security_groups    = ["${aws_security_group.dv10-sg-wp-base-alb.id}"]
