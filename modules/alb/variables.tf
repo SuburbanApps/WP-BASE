@@ -8,11 +8,4 @@ variable "public_subnets" {
     type = list(string)
 }
 
-variable "enviroment_prefix" {
-  type = "map"
-  default = {
-      dev     = "dv10"
-      staging = "st10"
-      live    = "lv10"
-  }
-}
+
