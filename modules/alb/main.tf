@@ -35,7 +35,7 @@ resource "aws_security_group" "dv10-sg-wp-base-alb" {
   }
 
   tags = {
-    Name =  "${local.environment_prefix}-sg-wp-base-alb"
+    Name =  "${local.environment_prefix}-sg-wp-base-alb"//error 2
     Environment = "${local.environment_name}"
     Project = "Wordpress Base"
     IaC = "Terraform"
