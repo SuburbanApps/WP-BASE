@@ -1,18 +1,7 @@
 # Global variables
 
 locals  {
-   env = {
-    environment_prefix = {
-      dev     = "dv10"
-      staging = "st10"
-      live    = "lv10"
-    }
-    environment_name = {
-      dev     = "Development"
-      staging = "Staging"
-      live    = "Live"
-    }
-   }
+ 
 
   aws_region = "eu-west-1"
   vpc_id = "vpc-dc76d7bb"
