@@ -1,3 +1,5 @@
+#Adjuntar variables de entorno
+
 resource "aws_security_group" "dv10-sg-wp-base-instances" {
   name        = "sgwpbaseinstances" ##${local.environment_prefix}-
   description = "Security Group Instances"
