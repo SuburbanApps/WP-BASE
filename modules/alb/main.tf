@@ -1,5 +1,5 @@
 resource "aws_security_group" "dv10-sg-wp-base-alb" 
-  name        =  "#${local.environment_prefix}-sg-wp-base-alb"
+  name        =  "${local.environment_prefix}-sg-wp-base-alb"
   description = "Security Group for Application Load Balancer"
   vpc_id      = "${var.vpc_id}"
 
@@ -19,7 +19,7 @@ resource "aws_security_group" "dv10-sg-wp-base-alb"
   }
 
   tags = {
-    Name = "dv10-sg-wp-base-alb"
+    Name =  "${local.environment_prefix}-sg-wp-base-alb"
     Environment = "Development"
     Project = "Wordpress Base"
     IaC = "Terraform"
@@ -40,14 +40,14 @@ resource "aws_lb" "dv10-alb-wp-base" {
   subnets            = "${var.public_subnets}"
 
   tags = {
-    Name = "dv10-alb-wp-base"
+    Name =  "${local.environment_prefix}-wp-base-alb"
     Environment = "Development"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
 }
 
-resource "aws_lb_target_group" "dv10-tg-wp-base" { //WP Empleo Target Group
+resource "aws_lb_target_group" "dv10-tg-wp-base" { 
   name        = "tgwpbase"
   port        = "80"
   protocol    = "HTTP"
