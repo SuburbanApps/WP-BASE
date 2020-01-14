@@ -1,4 +1,4 @@
-variable "enviroment_prefix" {
+variable "environment_prefix" {
   type = "map"
   default = {
       dev     = "dv10"
@@ -29,7 +29,7 @@ resource "aws_security_group" "dv10-sg-wp-base-alb" {
 
   tags = {
     Name =  "${var.environment_prefix}-sg-wp-base-alb"//error 2
-    Environment = "${var.environment_name}"
+    #Environment = "${var.environment_name}"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
