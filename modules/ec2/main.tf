@@ -50,8 +50,8 @@ resource "aws_launch_template" "lt-wp-base" {
   image_id  =  "ami-01f14919ba412de34"
   instance_type = "t2.micro"
   key_name = "${var.key_pair}"
-  vpc_security_group_ids = ["${aws_security_group.dv10-sg-wp-base-instances.id}"]
-  user_data               = "${base64encode(data.template_file.dv10-userdata-wp-base.rendered)}"
+  vpc_security_group_ids = ["${aws_security_group.sg-wp-base-instances.id}"]
+  user_data               = "${base64encode(data.template_file.userdata-wp-base.rendered)}"
 
   tag_specifications {
     resource_type = "instance"
