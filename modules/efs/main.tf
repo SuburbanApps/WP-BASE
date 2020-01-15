@@ -1,3 +1,22 @@
+#Adjuntar variables de entorno
+ locals {
+  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
+  environment_name            = "${lookup(local.env.environment_name, terraform.workspace)}"
+    env = {
+      environment_prefix = {
+        dev     = "dv10"
+        staging = "st10"
+        live    = "lv10"
+          }
+    
+      environment_name = {
+        dev     = "Development"
+        staging = "Staging"
+        live    = "Live"
+        }
+
+  }
+ }
 resource "aws_security_group" "sg-wp-base-efs" { 
   name        = "${local.environment_prefix}-sg-wp-base-efs"
   description = "Security Group for EFS"
