@@ -9,10 +9,7 @@ module "alb" {
   source = "./modules/alb"
   vpc_id = "${local.vpc_id}"
   public_subnets = "${local.public_subnet_ids}"
-  #environment_prefix ="${local.env.environment_prefix}"
-
-  
- 
+   
 }
 
 module "ec2" {
