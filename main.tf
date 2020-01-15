@@ -42,7 +42,7 @@ module "rds" {
 
 terraform { 
   backend "s3" {
-    bucket = "vim-terraform-backend"
+    bucket = "vim-terraform-backend-copy"
     dynamodb_table = "vim-terraform-backend"
     key = "wp-base.tfstate"
     region = "eu-west-1"
