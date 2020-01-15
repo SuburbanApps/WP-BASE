@@ -2,13 +2,15 @@
 
 provider "aws" { 
     region ="eu-west-1"
-    version = "~> 2.1"
+    #version = "~> 2.1"
 }
 
 module "alb" {
   source = "./modules/alb"
   vpc_id = "${local.vpc_id}"
   public_subnets = "${local.public_subnet_ids}"
+  environment_prefix ="${lookup(local.env.environment_prefix, terraform.workspace)}"
+
   
  
 }
