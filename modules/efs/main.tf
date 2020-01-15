@@ -1,5 +1,5 @@
-resource "aws_security_group" "dv10-sg-wp-base-efs" { 
-  name        = "sgwpbaseefs" ##${local.environment_prefix}-
+resource "aws_security_group" "sg-wp-base-efs" { 
+  name        = "${local.environment_prefix}-sg-wp-base-efs"
   description = "Security Group for EFS"
   vpc_id      = "${var.vpc_id}"
 
@@ -20,21 +20,21 @@ resource "aws_security_group" "dv10-sg-wp-base-efs" {
   }
 
   tags = {
-    Name = "sg-wp-base-efs"
-    Environment = "Development"
+    Name = "${local.environment_prefix}-sg-wp-base-efs"
+    Environment = "${local.environment_name}-sg-wp-base-efs"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
 }
    
 
-resource "aws_efs_file_system" "dv10-efs-wp-base" {
+resource "aws_efs_file_system" "efs-wp-base" {
   creation_token = "Efs Wordpress Test"
   
 
     tags      = {
-        Name = "wp-base"
-        Environment = "Development"
+        Name = "${local.environment_prefix}-efs-wp-base-efs"
+        Environment = "${local.environment_name}-efs-wp-base-efs"
         SLA = "8x5"
         Project = "Wordpress Base"
         IaC = "Terraform"
@@ -43,7 +43,7 @@ resource "aws_efs_file_system" "dv10-efs-wp-base" {
 
 resource "aws_efs_mount_target" "dv10-mt-wp-base-efs" {
     count = 3
-    file_system_id  = "${aws_efs_file_system.dv10-efs-wp-base.id}"
+    file_system_id  = "${aws_efs_file_system.efs-wp-base.id}"
     subnet_id       = "${var.private_subnets[count.index]}" 
     security_groups = "${var.incoming_sg_ids}"
 }
