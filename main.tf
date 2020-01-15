@@ -2,6 +2,7 @@
 
 provider "aws" { 
     region ="eu-west-1"
+    version = "~> 2.1"
 }
 
 module "alb" {
