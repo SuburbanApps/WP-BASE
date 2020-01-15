@@ -1,7 +1,7 @@
 #Adjuntar variables de entorno
 
-resource "aws_security_group" "dv10-sg-wp-base-instances" {
-  name        = "sgwpbaseinstances" ##${local.environment_prefix}-
+resource "aws_security_group" "sg-wp-base-instances" {
+  name        =  "${local.environment_prefix}-sg-wp-base-instances"
   description = "Security Group Instances"
   vpc_id      = "${var.vpc_id}"
 
@@ -21,15 +21,15 @@ resource "aws_security_group" "dv10-sg-wp-base-instances" {
   }
 
   tags = {
-    Name = "dv10-sg-wp-base-instances"
-    Environment = "Development"
+    Name = "${local.environment_prefix}-sg-wp-base-instances"
+    Environment = "${local.environment_name}-sg-wp-base-instances"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
 }
 
-resource "aws_launch_template" "dv10-lt-wp-base" {
-  name_prefix = "dev" #${local.environment_prefix}-
+resource "aws_launch_template" "lt-wp-base" {
+  name_prefix = "${local.environment_prefix}-lt-wp-base-instances"
   image_id  =  "ami-01f14919ba412de34"
   instance_type = "t2.micro"
   key_name = "${var.key_pair}"
@@ -38,47 +38,45 @@ resource "aws_launch_template" "dv10-lt-wp-base" {
 
   tag_specifications {
     resource_type = "instance"
-    tags          = {
-        Name = "wp-base"
-        Environment = "Development"
-        SLA = "8x5"
+      tags          = {
+        Name = "${local.environment_prefix}-lt-wp-base-instances"
+        Environment = "${local.environment_name}-lt-wp-base-instances"
         Project = "Wordpress Base"
         IaC = "Terraform"
+        SLA = "8x5"
     }
   }
 
   tag_specifications {
     resource_type = "volume"
     tags          = {
-        Name = "wp-base"
-        Environment = "Development"
-        SLA = "8x5"
+        Name = "${local.environment_prefix}-lt-wp-base-instances"
+        Environment = "${local.environment_name}-lt-wp-base-instances"
         Project = "Wordpress Base"
         IaC = "Terraform"
+        SLA = "8x5"
     }
   }
 
   tags = {
-        Name = "wp-base"
-        Environment = "Development"
-        SLA = "8x5"
+       Name = "${local.environment_prefix}-lt-wp-base-instances"
+        Environment = "${local.environment_name}-lt-wp-base-instances"
         Project = "Wordpress Base"
         IaC = "Terraform"
+        SLA = "8x5"
   }
 }
 data "template_file" "dv10-userdata-wp-base" {
   template = "${file("userdata.sh")}"
   vars = {
     aws_region        = "eu-west-1"
-    environment_name  = "dev"
-    #rds_dnsname       = "${aws_db_instance.dv10-db-wp-base.address}" !!error
-    #shared_account_id = "${local.aws_shared_accountid}"
+    environment_name  = "${local.environment_name}"
     rds_user          = "dev-rds-user"
     rds_root_password = "12345678"
     rds_user_password = "12345678"  
   }
 }
-resource "aws_autoscaling_group" "dv10-asg-wp-base" {
+resource "aws_autoscaling_group" "asg-wp-base" {
   desired_capacity   = 1
   max_size           = 1
   min_size           = 1
@@ -88,14 +86,14 @@ resource "aws_autoscaling_group" "dv10-asg-wp-base" {
   health_check_type = "EC2" // temporalmente para las pruebas
 
   launch_template {
-    id      = "${aws_launch_template.dv10-lt-wp-base.id}"
+    id      = "${aws_launch_template.lt-wp-base.id}"
     version = "$Latest"
   }
 
   tags = [
     {
       key                 = "Name"
-      value               = "dv10-asg-wp-base"
+      value               = "asg-wp-base"
       propagate_at_launch = false
     },
     {
@@ -121,21 +119,21 @@ resource "aws_autoscaling_group" "dv10-asg-wp-base" {
   ]
 }
 
-resource "aws_autoscaling_schedule" "dv10-asg-wp-base-sheduleUp" { 
+resource "aws_autoscaling_schedule" "asg-wp-base-sheduleUp" { 
   count                   = 1
   scheduled_action_name   = "asg-wp-base-sheduleUp"
   recurrence              = "0 6 * * MON-FRI"
   min_size                = 1
   max_size                = 2
   desired_capacity        = 1
-  autoscaling_group_name  = "${aws_autoscaling_group.dv10-asg-wp-base.name}"
+  autoscaling_group_name  = "${aws_autoscaling_group.asg-wp-base.name}"
 }
-resource "aws_autoscaling_schedule" "dv10-asg-wp-base-sheduledown" {
+resource "aws_autoscaling_schedule" "asg-wp-base-sheduledown" {
   count                   = 1
   scheduled_action_name   = "asg-wp-base--scheduledown"
   recurrence              = "0 18 * * MON-FRI"
   min_size                = 0
   max_size                = 0
   desired_capacity        = 0
-  autoscaling_group_name  = "${aws_autoscaling_group.dv10-asg-wp-base.name}"
+  autoscaling_group_name  = "${aws_autoscaling_group.asg-wp-base.name}"
 }
