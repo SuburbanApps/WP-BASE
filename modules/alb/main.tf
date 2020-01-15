@@ -5,7 +5,7 @@ locals {
   }
 }
 resource "aws_security_group" "dv10-sg-wp-base-alb" {
-  name        =  "${var.environment_prefix}-sg-wp-base-alb" //error 1
+  name        =  "${local.environment_prefix}-sg-wp-base-alb" //error 1
   description = "Security Group for Application Load Balancer"
   vpc_id      = "${var.vpc_id}"
 
@@ -26,22 +26,22 @@ resource "aws_security_group" "dv10-sg-wp-base-alb" {
 
   tags = {
     Name =  "${var.environment_prefix}-sg-wp-base-alb"//error 2
-    #Environment = "${var.environment_name}"
+    #Environment = "${local.environment_name}"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
 }
 
 resource "aws_lb" "dv10-alb-wp-base" {
-  name               = "${var.environment_prefix}-wp-base-alb" //error 3
+  name               = "${local.environment_prefix}-wp-base-alb" //error 3
   internal           = false
   load_balancer_type = "application"
   security_groups    = ["${aws_security_group.dv10-sg-wp-base-alb.id}"]
   subnets            = "${var.public_subnets}"
 
   tags = {
-    #Name =  "${var.enviroment_prefix.}-wp-base-alb"
-    #Environment = "Development"
+    Name =  "${local.enviroment_prefix.}-wp-base-alb"
+    Environment = "Development"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
