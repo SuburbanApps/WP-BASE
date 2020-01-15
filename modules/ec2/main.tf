@@ -52,7 +52,7 @@ resource "aws_launch_template" "lt-wp-base" {
   instance_type = "t2.micro"
   key_name = "${var.key_pair}"
   vpc_security_group_ids = ["${aws_security_group.sg-wp-base-instances.id}"]
-  //user_data               = "${base64encode(data.template_file.userdata-wp-base.rendered)}" ERROR !!!!!
+  user_data               = "${base64encode(data.template_file.userdata-wp-base.rendered)}" 
 
   tag_specifications {
     resource_type = "instance"
@@ -84,12 +84,12 @@ resource "aws_launch_template" "lt-wp-base" {
         SLA = "8x5"
   }
 }
-data "template_file" "dv10-userdata-wp-base" {
+data "template_file" "userdata-wp-base" {
   template = "${file("userdata.sh")}"
   vars = {
     aws_region        = "eu-west-1"
     environment_name  = "${local.environment_name}"
-    rds_user          = "dev-rds-user"
+    rds_user          = "${local.environment_name}-rds-user"
     rds_root_password = "12345678"
     rds_user_password = "12345678"  
   }
