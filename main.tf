@@ -1,29 +1,9 @@
 
-#archivo principal de configuración.
-
-#Declaramos provider
 
 provider "aws" { 
     region ="eu-west-1"
 }
-locals {
-  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
-  environment_name            = "${lookup(local.env.environment_name, terraform.workspace)}"
-  //user_data               = "${base64encode(data.template_file.userdata-wp-base.rendered)}" ERROR !!!
-    env = {
-      environment_prefix = {
-        dev     = "dv10"
-        staging = "st10"
-        live    = "lv10"
-          }
-    
-      environment_name = {
-        dev     = "Development"
-        staging = "Staging"
-        live    = "Live"
-        }
 
-  }
 module "alb" {
   source = "./modules/alb"
   vpc_id = "${local.vpc_id}"
