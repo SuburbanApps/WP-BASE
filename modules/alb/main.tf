@@ -1,4 +1,9 @@
-
+locals {
+  env = {
+    environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
+    environment_name            = "${lookup(local.env.environment_name, terraform.workspace)}"
+  }
+}
 resource "aws_security_group" "dv10-sg-wp-base-alb" {
   name        =  "${var.environment_prefix}-sg-wp-base-alb" //error 1
   description = "Security Group for Application Load Balancer"
