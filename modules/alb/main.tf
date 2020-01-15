@@ -37,7 +37,7 @@ resource "aws_security_group" "dv10-sg-wp-base-alb" {
   }
 
   tags = {
-    Name =  "${local.environment_prefix}-sg-wp-base-alb"//error 2
+    Name =  "${local.environment_prefix}-sg-wp-base-alb"
     Environment = "${local.environment_name}"
     Project = "Wordpress Base"
     IaC = "Terraform"
@@ -45,7 +45,7 @@ resource "aws_security_group" "dv10-sg-wp-base-alb" {
 }
 
 resource "aws_lb" "dv10-alb-wp-base" {
-  name               = "${local.environment_prefix}-wp-base-alb" //error 3
+  name               = "${local.environment_prefix}-wp-base-alb" 
   internal           = false
   load_balancer_type = "application"
   security_groups    = ["${aws_security_group.dv10-sg-wp-base-alb.id}"]
@@ -53,7 +53,7 @@ resource "aws_lb" "dv10-alb-wp-base" {
 
   tags = {
     Name =  "${local.environment_prefix}-wp-base-alb"
-    Environment = "Development"
+    Environment = "${local.environment_name}"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
