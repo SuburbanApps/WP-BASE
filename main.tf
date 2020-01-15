@@ -11,8 +11,8 @@ module "alb" {
   source = "./modules/alb"
   vpc_id = "${local.vpc_id}"
   public_subnets = "${local.public_subnet_ids}"
-  environment_name = "${local.environment_name}"
-  environment_prefix = "${local.environment_prefix}"
+  #environment_name = "${local.environment_name}"
+  #environment_prefix = "${local.environment_prefix}"
 }
 
 module "ec2" {
