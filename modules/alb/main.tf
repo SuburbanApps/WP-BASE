@@ -1,7 +1,7 @@
  locals {
   environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
   environment_name            = "${lookup(local.env.environment_name, terraform.workspace)}"
-  not_in_production = "${local.not_in_production_mapping[terraform.workspace]}" 
+  ##not_in_production = "${local.not_in_production_mapping[terraform.workspace]}" eliminar
     env = {
       environment_prefix = {
         dev     = "dv10"
@@ -16,6 +16,7 @@
         }
 
   }
+  not_in_production = "${local.not_in_production_mapping[terraform.workspace]}" 
   not_in_production_mapping = {
     dev         = true
     staging     = true
