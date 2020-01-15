@@ -1,11 +1,3 @@
-variable "environment_prefix" {
-  type = "map"
-  default = {
-      dev     = "dv10"
-      staging = "st10"
-      live    = "lv10"
-  }
-}
 
 resource "aws_security_group" "dv10-sg-wp-base-alb" {
   name        =  "${var.environment_prefix}-sg-wp-base-alb" //error 1
