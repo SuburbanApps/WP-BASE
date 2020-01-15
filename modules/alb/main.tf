@@ -1,6 +1,7 @@
  locals {
   environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
   environment_name            = "${lookup(local.env.environment_name, terraform.workspace)}"
+  not_in_production = "${local.not_in_production_mapping[terraform.workspace]}" 
     env = {
       environment_prefix = {
         dev     = "dv10"
@@ -15,8 +16,15 @@
         }
 
   }
+  not_in_production_mapping = {
+    dev         = true
+    staging     = true
+    live        = false
+  }
+  
  }
-resource "aws_security_group" "sg-wp-base-alb" {
+
+ resource "aws_security_group" "sg-wp-base-alb" {
   name        =  "${local.environment_prefix}-sg-wp-base-alb" 
   description = "Security Group for Application Load Balancer"
   vpc_id      = "${var.vpc_id}"
