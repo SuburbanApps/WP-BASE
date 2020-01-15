@@ -6,11 +6,30 @@
 provider "aws" { 
     region ="eu-west-1"
 }
+locals {
+  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
+  environment_name            = "${lookup(local.env.environment_name, terraform.workspace)}"
+  //user_data               = "${base64encode(data.template_file.userdata-wp-base.rendered)}" ERROR !!!
+    env = {
+      environment_prefix = {
+        dev     = "dv10"
+        staging = "st10"
+        live    = "lv10"
+          }
+    
+      environment_name = {
+        dev     = "Development"
+        staging = "Staging"
+        live    = "Live"
+        }
 
+  }
 module "alb" {
   source = "./modules/alb"
   vpc_id = "${local.vpc_id}"
   public_subnets = "${local.public_subnet_ids}"
+  "
+  
  
 }
 
@@ -44,7 +63,7 @@ module "rds" {
 
 terraform { 
   backend "s3" {
-    bucket = "vim-terraform-backend-copy"
+    bucket = "vim-terraform-backend"
     dynamodb_table = "vim-terraform-backend"
     key = "wp-base.tfstate"
     region = "eu-west-1"

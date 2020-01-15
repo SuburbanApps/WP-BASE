@@ -9,12 +9,6 @@ locals  {
   public_subnet_ids = ["subnet-c009eb9b","subnet-971cb9f0","subnet-48d67401"]
   key_pair = "dv10-wp-base"
 
-  #not_in_production = "${local.not_in_production_mapping[terraform.workspace]}" TESTEAR
-  #not_in_production_mapping = {
-    #dev         = true
-    #staging     = true
-    #live        = false
-  #}
 
 }
   
