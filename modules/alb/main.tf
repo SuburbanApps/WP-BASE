@@ -3,21 +3,21 @@
   environment_name            = "${lookup(local.env.environment_name, terraform.workspace)}"
     env = {
       environment_prefix = {
-        dev     = "change-environment1"
-        staging = "change-environment2"
-        live    = "change-environment1"
+        dev     = "dv10"
+        staging = "st10"
+        live    = "lv10"
           }
     
       environment_name = {
-        dev     = "Test cambio de entorno"
-        staging = "Test cambio de entorno2"
-        live    = "Test cambio de entorno3"
+        dev     = "Development"
+        staging = "Staging"
+        live    = "Live"
         }
 
   }
  }
 resource "aws_security_group" "dv10-sg-wp-base-alb" {
-  name        =  "${local.environment_prefix}-sg-wp-base-alb" //error 1
+  name        =  "${local.environment_prefix}-sg-wp-base-alb" 
   description = "Security Group for Application Load Balancer"
   vpc_id      = "${var.vpc_id}"
 
