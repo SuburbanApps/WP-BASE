@@ -3,15 +3,15 @@
   environment_name            = "${lookup(local.env.environment_name, terraform.workspace)}"
     env = {
       environment_prefix = {
-        dev     = "change-environment"
-        staging = "st10"
-        live    = "lv10"
+        dev     = "change-environment1"
+        staging = "change-environment2"
+        live    = "change-environment1"
           }
     
       environment_name = {
         dev     = "Test cambio de entorno"
-        staging = "Staging"
-        live    = "Live"
+        staging = "Test cambio de entorno2"
+        live    = "Test cambio de entorno3"
         }
 
   }
