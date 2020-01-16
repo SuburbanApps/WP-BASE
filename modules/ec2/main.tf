@@ -27,7 +27,7 @@
   }
  
 resource "aws_security_group" "sg-wp-base-instances" {
-  name        =  "${local.environment_prefix}-sgwpbaseinstances"
+  #name        =  "${local.environment_prefix}-sgwpbaseinstances"
   description = "Security Group Instances"
   vpc_id      = "${var.vpc_id}"
 
