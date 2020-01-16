@@ -1,7 +1,7 @@
 #Adjuntar variables de entorno
  locals {
-  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace, "${local.env.environment_prefix}")}"
-  environment_name            = "${lookup(local.env.environment_name, terraform.workspace, "${local.env.environment_name}")}"
+  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
+  environment_name            = "${lookup(local.env.environment_name, terraform.workspace)}"
     env = {
       environment_prefix = {
         dev     = "dv10"
@@ -26,7 +26,7 @@
   
  }
 resource "aws_security_group" "sg-wp-base-efs" { 
-  name        = "${local.env.environment_prefix}sgwpbaseefs"
+  name        = "${local.environment_prefix}sgwpbaseefs"
   description = "Security Group for EFS"
   vpc_id      = "${var.vpc_id}"
 
@@ -47,8 +47,8 @@ resource "aws_security_group" "sg-wp-base-efs" {
   }
 
   tags = {
-    Name = "${local.env.environment_prefix}-sg-wp-base-efs"
-    Environment = "${local.env.environment_name}-sg-wp-base-efs"
+    Name = "${local.environment_prefix}-sg-wp-base-efs"
+    Environment = "${local.environment_name}-sg-wp-base-efs"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
@@ -60,8 +60,8 @@ resource "aws_efs_file_system" "efs-wp-base" {
   
 
     tags      = {
-        Name = "${local.env.environment_prefix}-efs-wp-base-efs"
-        Environment = "${local.env.environment_name}-efs-wp-base-efs"
+        Name = "${local.environment_prefix}-efs-wp-base-efs"
+        Environment = "${local.environment_name}-efs-wp-base-efs"
         SLA = "8x5"
         Project = "Wordpress Base"
         IaC = "Terraform"

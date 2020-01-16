@@ -1,7 +1,7 @@
 #Adjuntar variables de entorno
  locals {
-  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace, "${local.env.environment_prefix}")}"
-  environment_name            = "${lookup(local.env.environment_name, terraform.workspace, "${local.env.environment_name}")}"
+  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
+  environment_name            = "${lookup(local.env.environment_name, terraform.workspace)}"
     env = {
       environment_prefix = {
         dev     = "dv10"
@@ -41,20 +41,20 @@ resource "aws_db_instance" "db-wp-base" {
   db_subnet_group_name = "${aws_db_subnet_group.sbg-wp-base.id}"
 
   tags = {
-    Name = "${local.env.environment_prefix}-db-wp-base"
-    Environment = "${local.env.environment_name}"
+    Name = "${local.environment_prefix}-db-wp-base"
+    Environment = "${local.environment_name}"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
 }
 
 resource "aws_db_subnet_group" "sbg-wp-base" {
-  name       = "${local.env.environment_prefix}-sbg-wp-base"
+  name       = "${local.environment_prefix}-sbg-wp-base"
   subnet_ids = "${var.private_subnets}"
 
   tags = {
-    Name = "${local.env.environment_prefix}-sbg-wp-base"
-    Environment = "${local.env.environment_name}"
+    Name = "${local.environment_prefix}-sbg-wp-base"
+    Environment = "${local.environment_name}"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
@@ -62,7 +62,7 @@ resource "aws_db_subnet_group" "sbg-wp-base" {
 }
 
 resource "aws_security_group" "sg-wp-base-rds" {
-  name        = "${local.env.environment_prefix}-sg-wp-base-rds"
+  name        = "${local.environment_prefix}-sg-wp-base-rds"
   description = "SG for RDS"
   vpc_id      = "${var.vpc_id}"
 
@@ -83,8 +83,8 @@ resource "aws_security_group" "sg-wp-base-rds" {
   }
 
   tags = {
-    Name = "${local.env.environment_prefix}-sg-wp-base-rds"
-    Environment = "${local.env.environment_name}"
+    Name = "${local.environment_prefix}-sg-wp-base-rds"
+    Environment = "${local.environment_name}"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }

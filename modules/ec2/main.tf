@@ -1,7 +1,7 @@
 #Adjuntar variables de entorno
  locals {
-  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace, "${local.env.environment_prefix}")}"
-  environment_name            ="${lookup(local.env.environment_name, terraform.workspace, "${local.env.environment_name}")}"
+  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
+  environment_name            ="${lookup(local.env.environment_name, terraform.workspace)}"
   //user_data               = "${base64encode(data.template_file.userdata-wp-base.rendered)}" ERROR !!!
     env = {
       environment_prefix = {
@@ -27,7 +27,7 @@
   }
  
 resource "aws_security_group" "sg-wp-base-instances" {
-  name        =  "${local.env.environment_prefix}-sg-wp-base-instances"
+  name        =  "${local.environment_prefix}-sg-wp-base-instances"
   description = "Security Group Instances"
   vpc_id      = "${var.vpc_id}"
 
@@ -47,15 +47,15 @@ resource "aws_security_group" "sg-wp-base-instances" {
   }
 
   tags = {
-    Name = "${local.env.environment_prefix}-sg-wp-base-instances"
-    Environment = "${local.env.environment_name}-sg-wp-base-instances"
+    Name = "${local.environment_prefix}-sg-wp-base-instances"
+    Environment = "${local.environment_name}-sg-wp-base-instances"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
 }
 
 resource "aws_launch_template" "lt-wp-base" {
-  name_prefix = "${local.env.environment_prefix}ltwpbaseinstances"
+  name_prefix = "${local.environment_prefix}ltwpbaseinstances"
   image_id  =  "ami-01f14919ba412de34"
   instance_type = "t2.micro"
   key_name = "${var.key_pair}"
@@ -65,8 +65,8 @@ resource "aws_launch_template" "lt-wp-base" {
   tag_specifications {
     resource_type = "instance"
       tags          = {
-        Name = "${local.env.environment_prefix}-lt-wp-base-instances"
-        Environment = "${local.env.environment_name}-lt-wp-base-instances"
+        Name = "${local.environment_prefix}-lt-wp-base-instances"
+        Environment = "${local.environment_name}-lt-wp-base-instances"
         Project = "Wordpress Base"
         IaC = "Terraform"
         SLA = "8x5"
@@ -76,8 +76,8 @@ resource "aws_launch_template" "lt-wp-base" {
   tag_specifications {
     resource_type = "volume"
     tags          = {
-        Name = "${local.env.environment_prefix}-lt-wp-base-instances"
-        Environment = "${local.env.environment_name}-lt-wp-base-instances"
+        Name = "${local.environment_prefix}-lt-wp-base-instances"
+        Environment = "${local.environment_name}-lt-wp-base-instances"
         Project = "Wordpress Base"
         IaC = "Terraform"
         SLA = "8x5"
@@ -85,8 +85,8 @@ resource "aws_launch_template" "lt-wp-base" {
   }
 
   tags = {
-       Name = "${local.env.environment_prefix}-lt-wp-base-instances"
-        Environment = "${local.env.environment_name}-lt-wp-base-instances"
+       Name = "${local.environment_prefix}-lt-wp-base-instances"
+        Environment = "${local.environment_name}-lt-wp-base-instances"
         Project = "Wordpress Base"
         IaC = "Terraform"
         SLA = "8x5"
@@ -96,8 +96,8 @@ data "template_file" "userdata-wp-base" {
   template = "${file("userdata.sh")}"
   vars = {
     aws_region        = "eu-west-1"
-    environment_name  = "${local.env.environment_name}"
-    rds_user          = "${local.env.environment_name}-rds-user"
+    environment_name  = "${local.environment_name}"
+    rds_user          = "${local.environment_name}-rds-user"
     rds_root_password = "12345678"
     rds_user_password = "12345678"  
   }
