@@ -19,9 +19,11 @@ locals {
   
   not_in_production = "${local.not_in_production_mapping[terraform.workspace]}" 
   not_in_production_mapping = {
+    default = {
     dev         = true
     staging     = true
     live        = false
+    }
   }
   
  }

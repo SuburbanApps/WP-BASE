@@ -1,7 +1,7 @@
 #Adjuntar variables de entorno
  locals {
-  environment_prefix          = "dev" ##"${lookup(local.env.environment_prefix, terraform.workspace)}"
-  environment_name            = "Development" ##"${lookup(local.env.environment_name, terraform.workspace)}"
+  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
+  environment_name            = "${lookup(local.env.environment_name, terraform.workspace)}"
     env = {
       environment_prefix = {
         dev     = "dv10"
@@ -18,9 +18,11 @@
   }
   not_in_production = "${local.not_in_production_mapping[terraform.workspace]}" 
   not_in_production_mapping = {
+    default = {
     dev         = true
     staging     = true
     live        = false
+  }
   }
  }
 resource "aws_db_instance" "db-wp-base" { 

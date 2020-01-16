@@ -1,7 +1,7 @@
 #Adjuntar variables de entorno
  locals {
-  environment_prefix          = "dev" ##"${lookup(local.env.environment_prefix, terraform.workspace)}"
-  environment_name            ="Deveplopment" ##"${lookup(local.env.environment_name, terraform.workspace)}"
+  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
+  environment_name            ="${lookup(local.env.environment_name, terraform.workspace)}"
   //user_data               = "${base64encode(data.template_file.userdata-wp-base.rendered)}" ERROR !!!
     env = {
       environment_prefix = {
@@ -19,9 +19,11 @@
   }
   not_in_production = "${local.not_in_production_mapping[terraform.workspace]}" 
   not_in_production_mapping = {
+    default = {
     dev         = true
     staging     = true
     live        = false
+  }
   }
  }
 resource "aws_security_group" "sg-wp-base-instances" {
