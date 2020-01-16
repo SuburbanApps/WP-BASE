@@ -27,7 +27,7 @@
   }
  
 resource "aws_security_group" "sg-wp-base-instances" {
-  #name        =  "${local.environment_prefix}-sgwpbaseinstances"
+  name        =  "${local.environment_prefix}-sg-wp-base-instances"
   description = "Security Group Instances"
   vpc_id      = "${var.vpc_id}"
 
@@ -36,7 +36,7 @@ resource "aws_security_group" "sg-wp-base-instances" {
     from_port       = 80
     to_port         = 80
     protocol        = "tcp"
-    security_groups = "${var.incoming_sg_ids}"
+    #security_groups = "${var.incoming_sg_ids}"
   }
 
   egress {
