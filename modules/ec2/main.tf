@@ -27,7 +27,7 @@
   }
  
 resource "aws_security_group" "sg-wp-base-instances" {
-   name        =  "${local.environment_prefix}-sg-wp-base-instances"
+   name        =  "${local.environment_prefix}sgwpbaseinstances"
   description = "Security Group Instances"
   vpc_id      = "${var.vpc_id}"
 
@@ -55,11 +55,11 @@ resource "aws_security_group" "sg-wp-base-instances" {
 }
 
 resource "aws_launch_template" "lt-wp-base" {
-  name_prefix = "${local.environment_prefix}-lt-wp-base-instances"
+  name_prefix = "${local.environment_prefix}ltwpbaseinstances"
   image_id  =  "ami-01f14919ba412de34"
   instance_type = "t2.micro"
   key_name = "${var.key_pair}"
-  vpc_security_group_ids = ["${aws_security_group.sg-wp-base-instances.id}"]
+  vpc_security_group_ids = "${aws_security_group.sg-wp-base-instances.id}"
   user_data               = "${base64encode(data.template_file.userdata-wp-base.rendered)}" 
 
   tag_specifications {

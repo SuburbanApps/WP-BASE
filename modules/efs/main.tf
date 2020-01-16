@@ -26,7 +26,7 @@
   
  }
 resource "aws_security_group" "sg-wp-base-efs" { 
-  name        = "${local.environment_prefix}-sg-wp-base-efs"
+  name        = "${local.environment_prefix}sgwpbaseefs"
   description = "Security Group for EFS"
   vpc_id      = "${var.vpc_id}"
 
@@ -68,7 +68,7 @@ resource "aws_efs_file_system" "efs-wp-base" {
     }
 }
 
-resource "aws_efs_mount_target" "mt-wp-base-efs" {
+resource "aws_efs_mount_target" "mtwpbaseefs" {
     count = 3
     file_system_id  = "${aws_efs_file_system.efs-wp-base.id}"
     subnet_id       = "${var.private_subnets[count.index]}" 
