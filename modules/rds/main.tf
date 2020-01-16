@@ -28,7 +28,7 @@ resource "aws_db_instance" "db-wp-base" {
   allocated_storage       = 20
   storage_type            = "gp2"
   engine                  = "MariaDB"
-  name                    = "${local.environment_prefix}-db-wp-base"
+  name                    = "db-wp"
   identifier              = "db-wp" 
   #db_subnet_group_name    = "${aws_db_subnet_group." hacer variable
   username                = "root"
