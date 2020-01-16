@@ -17,16 +17,16 @@ locals {
   }
   
   
-  not_in_production = "${local.not_in_production_mapping[terraform.workspace]}" 
-  not_in_production_mapping = {
+  #not_in_production = "${local.not_in_production_mapping[terraform.workspace]}" 
+  #not_in_production_mapping = {
    
-    dev         = true
-    staging     = true
-    live        = false
-    }
+    #dev         = true
+    #staging     = true
+    #live        = false
+    #}
   
   
- }
+ #}
 
  resource "aws_security_group" "sg-wp-base-alb" {
   name        =  "${local.environment_prefix}-sg-wp-base-alb" 
@@ -111,4 +111,5 @@ resource "aws_lb_listener" "listener-wp-base" {
     type             = "forward"
     target_group_arn = "${aws_lb_target_group.tg-wp-base.id}"
   }
+}
 }

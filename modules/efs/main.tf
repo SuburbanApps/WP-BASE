@@ -16,13 +16,13 @@
         }
 
   }
-  not_in_production = "${local.not_in_production_mapping[terraform.workspace]}" 
-  not_in_production_mapping = {
+  #not_in_production = "${local.not_in_production_mapping[terraform.workspace]}" 
+  #not_in_production_mapping = {
    
-    dev         = true
-    staging     = true
-    live        = false
-    }
+    #dev         = true
+    #staging     = true
+    #live        = false
+    #}
   
  }
 resource "aws_security_group" "sg-wp-base-efs" { 
