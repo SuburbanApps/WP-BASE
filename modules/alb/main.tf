@@ -1,5 +1,5 @@
 locals {
-  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
+  environment_prefix          =  "dev"##"${lookup(local.env.environment_prefix, terraform.workspace)}"
   environment_name            = "${lookup(local.env.environment_name, terraform.workspace)}"
       env = {
       environment_prefix = {
