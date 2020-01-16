@@ -28,7 +28,7 @@ locals {
   
   
  resource "aws_security_group" "sg-wp-base-alb" {
-  name        =  "${local.environment_prefix}-sg-wp-base-alb" 
+  name        =  "${local.env.environment_prefix}-sg-wp-base-alb" 
   description = "Security Group for Application Load Balancer"
   vpc_id      = "${var.vpc_id}"
 
@@ -48,30 +48,30 @@ locals {
   }
 
   tags = {
-    Name =  "${local.environment_prefix}-sg-wp-base-alb"
-    Environment = "${local.environment_name}"
+    Name =  "${local.env.environment_prefix}-sg-wp-base-alb"
+    Environment = "${local.env.environment_name}"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
 }
 
 resource "aws_lb" "alb-wp-base" {
-  name               = "${local.environment_prefix}-wp-base-alb" 
+  name               = "${local.env.environment_prefix}-wp-base-alb" 
   internal           = false
   load_balancer_type = "application"
   security_groups    = ["${aws_security_group.sg-wp-base-alb.id}"]
   subnets            = "${var.public_subnets}"
 
   tags = {
-    Name =  "${local.environment_prefix}-wp-base-alb"
-    Environment = "${local.environment_name}"
+    Name =  "${local.env.environment_prefix}-wp-base-alb"
+    Environment = "${local.env.environment_name}"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
 }
 
 resource "aws_lb_target_group" "tg-wp-base" { 
-  name        = "${local.environment_prefix}-tg-base-alb" 
+  name        = "${local.env.environment_prefix}-tg-base-alb" 
   port        = "80"
   protocol    = "HTTP"
   target_type = "instance"
@@ -93,7 +93,7 @@ resource "aws_lb_target_group" "tg-wp-base" {
   }
 
   tags = {
-    Name =  "${local.environment_prefix}-tg-base-alb"
+    Name =  "${local.env.environment_prefix}-tg-base-alb"
     Environment = "Development"
     Project = "Wordpress Base"
     IaC = "Terraform"
