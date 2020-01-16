@@ -1,6 +1,6 @@
 locals {
-  environment_prefix          =  "dev"##"${lookup(local.env.environment_prefix, terraform.workspace)}"
-  environment_name            = "Development"##"${lookup(local.env.environment_name, terraform.workspace)}"
+  environment_prefix          =  "dev"##"${lookup(local.env.environment_prefix, terraform.workspace)}" ERROR!!!
+  environment_name            = "Development"##"${lookup(local.env.environment_name, terraform.workspace)}" ERROR!!
       env = {
       environment_prefix = {
         dev     = "dv10"
