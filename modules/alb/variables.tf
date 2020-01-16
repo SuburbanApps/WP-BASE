@@ -5,7 +5,7 @@ variable "vpc_id" {
 
 variable "public_subnets" {
     description = "VPC Public Subnets where the ALB resources will be created."
-    type = "any"
+    type = "list"
 }
 
 
