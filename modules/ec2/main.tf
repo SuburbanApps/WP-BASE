@@ -1,7 +1,7 @@
 #Adjuntar variables de entorno
  locals {
-  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace, "${local.environment_prefix}")}"
-  environment_name            ="${lookup(local.env.environment_name, terraform.workspace, "${local.environment_name}")}"
+  environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace, "${local.env.environment_prefix}")}"
+  environment_name            ="${lookup(local.env.environment_name, terraform.workspace, "${local.env.environment_name}")}"
   //user_data               = "${base64encode(data.template_file.userdata-wp-base.rendered)}" ERROR !!!
     env = {
       environment_prefix = {
