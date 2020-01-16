@@ -18,12 +18,11 @@
   }
   not_in_production = "${local.not_in_production_mapping[terraform.workspace]}" 
   not_in_production_mapping = {
-    default = {
+    
     dev         = true
     staging     = true
     live        = false
-  }
-  }
+   }
  }
 resource "aws_db_instance" "db-wp-base" { 
   instance_class          = "db.t3.medium"

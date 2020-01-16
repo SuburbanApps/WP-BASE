@@ -19,13 +19,13 @@
   }
   not_in_production = "${local.not_in_production_mapping[terraform.workspace]}" 
   not_in_production_mapping = {
-    default = {
+    
     dev         = true
     staging     = true
     live        = false
   }
   }
- }
+ 
 resource "aws_security_group" "sg-wp-base-instances" {
   name        =  "${local.environment_prefix}-sg-wp-base-instances"
   description = "Security Group Instances"
