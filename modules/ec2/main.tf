@@ -107,7 +107,7 @@ resource "aws_autoscaling_group" "asg-wp-base" {
   max_size           = 1
   min_size           = 1
   vpc_zone_identifier  = "${var.private_subnets}"
-  target_group_arns = "${var.target_group_arns}"
+  #target_group_arns = "${var.target_group_arns}"
 
   health_check_type = "EC2" // temporalmente para las pruebas
 
