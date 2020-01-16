@@ -72,6 +72,6 @@ resource "aws_efs_mount_target" "mtwpbaseefs" {
     count = 3
     file_system_id  = "${aws_efs_file_system.efs-wp-base.id}"
     subnet_id       = "${var.private_subnets[count.index]}" 
-    security_groups = "${var.incoming_sg_ids}"
+    ##security_groups = "${var.incoming_sg_ids}"
 }
 
