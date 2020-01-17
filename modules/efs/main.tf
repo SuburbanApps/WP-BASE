@@ -48,7 +48,7 @@ resource "aws_security_group" "sg-wp-base-efs" {
 
   tags = {
     Name = "${local.environment_prefix}-sg-wp-base-efs"
-    Environment = "${local.environment_name}-sg-wp-base-efs"
+    Environment = "${local.environment_name}"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
@@ -61,14 +61,14 @@ resource "aws_efs_file_system" "efs-wp-base" {
 
     tags      = {
         Name = "${local.environment_prefix}-efs-wp-base-efs"
-        Environment = "${local.environment_name}-efs-wp-base-efs"
+        Environment = "${local.environment_name}"
         SLA = "8x5"
         Project = "Wordpress Base"
         IaC = "Terraform"
     }
 }
 
-resource "aws_efs_mount_target" "mtwpbaseefs" {
+resource "aws_efs_mount_target" "mt-wp-base-efs" {
     count = 3
     file_system_id  = "${aws_efs_file_system.efs-wp-base.id}"
     subnet_id       = "${var.private_subnets[count.index]}" 

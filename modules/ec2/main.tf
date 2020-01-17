@@ -77,7 +77,7 @@ resource "aws_launch_template" "lt-wp-base" {
     resource_type = "volume"
     tags          = {
         Name = "${local.environment_prefix}-lt-wp-base-instances"
-        Environment = "${local.environment_name}-lt-wp-base-instances"
+        Environment = "${local.environment_name}"
         Project = "Wordpress Base"
         IaC = "Terraform"
         SLA = "8x5"
@@ -86,7 +86,7 @@ resource "aws_launch_template" "lt-wp-base" {
 
   tags = {
        Name = "${local.environment_prefix}-lt-wp-base-instances"
-        Environment = "${local.environment_name}-lt-wp-base-instances"
+        Environment = "${local.environment_name}"
         Project = "Wordpress Base"
         IaC = "Terraform"
         SLA = "8x5"
@@ -129,7 +129,7 @@ resource "aws_autoscaling_group" "asg-wp-base" {
     },
     {
       key                 = "Environment"
-      value               = "Development"
+      value               =  "${local.environment_name}"
       propagate_at_launch = false
     },
     {

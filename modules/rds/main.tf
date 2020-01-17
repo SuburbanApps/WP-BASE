@@ -31,7 +31,6 @@ resource "aws_db_instance" "db-wp-base" {
   engine                  = "MariaDB"
   name                    = "dbwp"
   identifier              = "db-wp" 
-  #db_subnet_group_name    = "${aws_db_subnet_group." hacer variable
   username                = "root"
   password                = "12345678"
   vpc_security_group_ids  = ["${aws_security_group.sg-wp-base-rds.id}"]
