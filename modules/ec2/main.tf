@@ -48,14 +48,14 @@ resource "aws_security_group" "sg-wp-base-instances" {
 
   tags = {
     Name = "${local.environment_prefix}-sg-wp-base-instances"
-    Environment = "${local.environment_name}-sg-wp-base-instances"
+    Environment = "${local.environment_name}"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
 }
 
 resource "aws_launch_template" "lt-wp-base" {
-  name_prefix = "${local.environment_prefix}ltwpbaseinstances"
+  name_prefix = "${local.environment_prefix}lt-wp-base-instances"
   image_id  =  "ami-01f14919ba412de34"
   instance_type = "t2.micro"
   key_name = "${var.key_pair}"

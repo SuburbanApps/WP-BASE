@@ -94,7 +94,7 @@ resource "aws_lb_target_group" "tg-wp-base" {
 
   tags = {
     Name =  "${local.environment_prefix}-tg-base-alb"
-    Environment = "Development"
+    Environment = "${local.environment_name}"
     Project = "Wordpress Base"
     IaC = "Terraform"
   }
