@@ -96,15 +96,3 @@ elif [ "$#" -gt 2 ]; then
 fi
 efs_remote_target="$1"
 mount_point="$2"
-
-# Converting the EFS remote target to a valid NFS4 remote target
-#if ! output=$("$EC2METADATA" --availability-zone 2>&1); then
-    #usage_and_exit "error while getting ec2 metadata -- $output"
-#fi
-#remote_target="${output}.${efs_remote_target}"
-
-# Mount using mount.nfs4
-#cmd=$(echo "$MOUNT_NFS4 $remote_target $mount_point $mount_nfs4_options" | \
-        tr -s " ")
-#[ "$verbose" -eq 1 ] && echo "$PROGRAM: runnning $cmd"
-#$cmd
