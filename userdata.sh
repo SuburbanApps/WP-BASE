@@ -1,5 +1,4 @@
 #!/bin/bash
-#1ºinstalacion wordpress
 #cloud-config
 package_upgrade: true
 packages:
@@ -13,7 +12,6 @@ mount -a
 service httpd start
 chkconfig httpd on
 
-#!/bin/bash
 #1ºinstalacion wordpress
 mkdir ~/var/www/efs
 cd ~/var/www/efs
