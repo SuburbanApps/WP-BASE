@@ -25,7 +25,7 @@
    #}
  }
 resource "aws_db_instance" "db-wp-base" { 
-  instance_class          = "db.t3.medium"
+  instance_class          = "db.t2.micro" ##orginal -> "db.t3.medium"
   allocated_storage       = 20
   storage_type            = "gp2"
   engine                  = "MariaDB"
