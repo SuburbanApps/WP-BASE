@@ -1,5 +1,5 @@
- UserData:
-        
+#!bin/bash
+sudo yum install -y amazon-efs-utils        
         
         #EFS mount
         'Fn::Base64': !Sub >
