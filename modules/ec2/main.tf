@@ -45,7 +45,7 @@ resource "aws_security_group" "sg-wp-base-instances" {
     protocol        = "-1"
     cidr_blocks     = ["0.0.0.0/0"]
   }
-
+###AÑADIR REGLA SSH
   tags = {
     Name = "${local.environment_prefix}-sg-wp-base-instances"
     Environment = "${local.environment_name}"
