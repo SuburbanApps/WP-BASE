@@ -89,3 +89,5 @@ resource "aws_security_group" "sg-wp-base-rds" {
   }
 }
 
+
+#prueba automatic
