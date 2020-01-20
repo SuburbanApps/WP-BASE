@@ -26,7 +26,7 @@
   
  }
 resource "aws_security_group" "sg-wp-base-efs" { 
-  name        = "${local.environment_prefix}sgwpbaseefs"
+  name        = "${local.environment_prefix}-sg-wp-base-efs"
   description = "Security Group for EFS"
   vpc_id      = "${var.vpc_id}"
 
@@ -47,7 +47,7 @@ resource "aws_security_group" "sg-wp-base-efs" {
   }
 
   tags = {
-    Name = "${local.environment_prefix}-sg-wp-base-efs"
+    Name = "${local.environment_prefix}-wp-base-efs"
     Environment = "${local.environment_name}"
     Project = "Wordpress Base"
     IaC = "Terraform"
