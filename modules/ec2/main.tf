@@ -46,6 +46,20 @@ resource "aws_security_group" "sg-wp-base-instances" {
     cidr_blocks     = ["0.0.0.0/0"]
   }
 ###AÑADIR REGLA SSH
+ ingress {
+    description     = "Traffic from ssh"
+    from_port       = 22
+    to_port         = 22
+    protocol        = "tcp"
+    #security_groups = "${var.incoming_sg_ids}"
+  }
+
+  egress {
+    from_port       = 0
+    to_port         = 0
+    protocol        = "-1"
+    cidr_blocks     = ["0.0.0.0/0"]
+  }
   tags = {
     Name = "${local.environment_prefix}-sg-wp-base-instances"
     Environment = "${local.environment_name}"
