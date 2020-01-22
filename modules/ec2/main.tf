@@ -127,7 +127,7 @@ resource "aws_autoscaling_group" "asg-wp-base" {
   health_check_type = "EC2" // temporalmente para las pruebas
 
   launch_template {
-    id      = "${aws_launch_template.lt-wp-base.id}"
+    id      = aws_launch_template.lt-wp-base.id
     version = "$Latest"
   }
 
