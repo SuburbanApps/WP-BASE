@@ -2,7 +2,7 @@
  locals {
   environment_prefix          = "${lookup(local.env.environment_prefix, terraform.workspace)}"
   environment_name            ="${lookup(local.env.environment_name, terraform.workspace)}"
-  user_data               = "${base64encode(data.template_file.userdata-wp-base.rendered)}" 
+  user_data               = base64encode(data.template_file.userdata-wp-base.rendered)
     env = {
       environment_prefix = {
         dev     = "dv10"
@@ -75,7 +75,7 @@ resource "aws_launch_template" "lt-wp-base" {
   instance_type = "t2.micro"
   key_name = var.key_pair
   vpc_security_group_ids = ["${aws_security_group.sg-wp-base-instances.id}"]
-  user_data               = "${base64encode(data.template_file.userdata-wp-base.rendered)}" 
+  user_data               = base64encode(data.template_file.userdata-wp-base.rendered) 
 
   tag_specifications {
     resource_type = "instance"
