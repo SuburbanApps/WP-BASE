@@ -60,7 +60,7 @@ resource "aws_lb" "alb-wp-base" {
   internal           = false
   load_balancer_type = "application"
   security_groups    = ["${aws_security_group.sg-wp-base-alb.id}"]
-  subnets            = "${var.public_subnets}"
+  subnets            = var.public_subnets
 
   tags = {
     Name =  "${local.environment_prefix}-wp-base-alb"
