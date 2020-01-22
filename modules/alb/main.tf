@@ -30,7 +30,7 @@ locals {
  resource "aws_security_group" "sg-wp-base-alb" {
   name        =  "${local.environment_prefix}-sg-wp-base-alb" 
   description = "Security Group for Application Load Balancer"
-  vpc_id      =  $var.vpc_id}
+  vpc_id      =  $var.vpc_id
 
   ingress {
     description     = "HTTP from internet"
