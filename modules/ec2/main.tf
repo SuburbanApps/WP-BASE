@@ -167,7 +167,7 @@ resource "aws_autoscaling_schedule" "asg-wp-base-sheduleUp" {
   min_size                = 1
   max_size                = 2
   desired_capacity        = 1
-  autoscaling_group_name  = "${aws_autoscaling_group.asg-wp-base.name}"
+  autoscaling_group_name  = aws_autoscaling_group.asg-wp-base.name
 }
 resource "aws_autoscaling_schedule" "asg-wp-base-sheduledown" {
   count                   = 1
@@ -176,6 +176,6 @@ resource "aws_autoscaling_schedule" "asg-wp-base-sheduledown" {
   min_size                = 0
   max_size                = 0
   desired_capacity        = 0
-  autoscaling_group_name  = "${aws_autoscaling_group.asg-wp-base.name}"
+  autoscaling_group_name  = aws_autoscaling_group.asg-wp-base.name
 }
  
