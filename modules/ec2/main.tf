@@ -73,7 +73,7 @@ resource "aws_launch_template" "lt-wp-base" {
   name_prefix = "${local.environment_prefix}lt-wp-base-instances"
   image_id  =  "ami-01f14919ba412de34"
   instance_type = "t2.micro"
-  key_name = "${var.key_pair}"
+  key_name = var.key_pair
   vpc_security_group_ids = ["${aws_security_group.sg-wp-base-instances.id}"]
   user_data               = "${base64encode(data.template_file.userdata-wp-base.rendered)}" 
 
