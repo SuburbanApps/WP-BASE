@@ -102,12 +102,12 @@ resource "aws_lb_target_group" "tg-wp-base" {
 }
 
 resource "aws_lb_listener" "listener-wp-base" {
-  load_balancer_arn = "${aws_lb.alb-wp-base.id}"
+  load_balancer_arn = aws_lb.alb-wp-base.id
   port              = "80"
   protocol          = "HTTP"
 
   default_action {
     type             = "forward"
-    target_group_arn = "${aws_lb_target_group.tg-wp-base.id}"
+    target_group_arn = aws_lb_target_group.tg-wp-base.id
   }
 }
