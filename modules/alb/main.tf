@@ -75,7 +75,7 @@ resource "aws_lb_target_group" "tg-wp-base" {
   port        = "80"
   protocol    = "HTTP"
   target_type = "instance"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = var.vpc_id
 
   health_check {
     interval            = "15"
