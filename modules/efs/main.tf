@@ -36,7 +36,7 @@ resource "aws_security_group" "sg-wp-base-efs" {
     to_port         = 80
     protocol        = "tcp"
     cidr_blocks     = ["0.0.0.0/0"]
-    security_groups = "${var.incoming_sg_ids}"
+    #security_groups = "${var.incoming_sg_ids}"
   }
 
   egress {
@@ -72,6 +72,6 @@ resource "aws_efs_mount_target" "mt-wp-base-efs" {
     count = 2
     file_system_id  = "${aws_efs_file_system.efs-wp-base.id}"
     subnet_id       =  "${var.private_subnets[count.index]}"
-    ##security_groups = "${var.incoming_sg_ids}"
+    #security_groups = "${var.incoming_sg_ids}"
 }
 
