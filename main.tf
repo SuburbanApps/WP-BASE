@@ -40,7 +40,7 @@ module "rds" {
   source ="./modules/rds"
   #user_db = "${local.user_db}"
   #pwd_db = "${local.pwd_db}"
-  private_subnets = "${local.private_subnet_ids}"
+  private_subnets = "${local.private_subnet_ids[count.index]+1}"
   #az_select  = "${local.az_select}" 
   vpc_id = "${local.vpc_id}"
   #incoming_sg_ids = ["${module.alb.alb_sg_id}"]
