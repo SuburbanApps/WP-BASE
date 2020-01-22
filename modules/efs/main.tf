@@ -36,7 +36,7 @@ resource "aws_security_group" "sg-wp-base-efs" {
     to_port         = 80
     protocol        = "tcp"
     cidr_blocks     = ["0.0.0.0/0"]
-    security_groups = "${var.incoming_sg_ids[count.index]}"
+    security_groups = "${var.incoming_sg_ids}"
   }
 
   egress {
