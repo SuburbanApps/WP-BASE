@@ -35,9 +35,9 @@ resource "aws_db_instance" "db-wp-base" {
   password                = "12345678"
   vpc_security_group_ids  = ["${aws_security_group.sg-wp-base-rds.id}"]
   skip_final_snapshot     = true
-  multi_az                = "${var.az_select}"
+  multi_az                = var.az_select
   max_allocated_storage = 100
-  db_subnet_group_name = "${aws_db_subnet_group.sbg-wp-base.id}"
+  db_subnet_group_name = aws_db_subnet_group.sbg-wp-base.id
 
   tags = {
     Name = "${local.environment_prefix}-db-wp-base"
