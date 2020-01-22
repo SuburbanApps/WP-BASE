@@ -49,7 +49,7 @@ resource "aws_db_instance" "db-wp-base" {
 
 resource "aws_db_subnet_group" "sbg-wp-base" {
   name       = "${local.environment_prefix}-sbg-wp-base"
-  subnet_ids = "${var.private_subnets}"
+  subnet_ids = var.private_subnets
 
   tags = {
     Name = "${local.environment_prefix}-sbg-wp-base"
@@ -63,7 +63,7 @@ resource "aws_db_subnet_group" "sbg-wp-base" {
 resource "aws_security_group" "sg-wp-base-rds" {
   name        = "${local.environment_prefix}-sg-wp-base-rds"
   description = "SG for RDS"
-  vpc_id      = "${var.vpc_id}"
+  vpc_id      = var.vpc_id
 
   
   ingress {
