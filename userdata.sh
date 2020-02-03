@@ -18,10 +18,10 @@ echo "Instalando Wordpress"
 mkdir /var/www/html
 wget https://es.wordpress.org/latest-es_ES.tar.gz
 sudo tar xf latest-es_ES.tar.gz -C /var/www/html/
-sed -i "/DB_HOST/s/'[^']*'/'${rds_dnsname}'/2" wp-config.php
-sed -i "/DB_NAME/s/'[^']*'/'dbwp'/2" wp-config.php
-sed -i "/DB_USER/s/'[^']*'/'root'/2" wp-config.php
-sed -i "/DB_PASSWORD/s/'[^']*'/'12345678'/2" wp-config.php
+#sed -i "/DB_HOST/s/'[^']*'/'${rds_dnsname}'/2" wp-config.php
+#sed -i "/DB_NAME/s/'[^']*'/'dbwp'/2" wp-config.php
+#sed -i "/DB_USER/s/'[^']*'/'root'/2" wp-config.php
+#sed -i "/DB_PASSWORD/s/'[^']*'/'12345678'/2" wp-config.php
 if [ ! -f "/var/www/health-check.php" ]; then
   echo "<?php
 \$_SERVER['HTTP_HOST'] = 'ec2-user@172.31.53.77'; // Use the domain of the network root site.
