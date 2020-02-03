@@ -16,6 +16,5 @@ sudo touch test-file.txt
 # WP installation
 echo "Instalando Wordpress"
 mkdir /var/www
+sudo tar xf latest-es_ES.tar.gz -C /var/www/html/
 cd /var/www
-aws s3 cp --profile ${environment_name}-ReadAccessToConfigsBucket s3://application-configurations-tnc58anqy8xkj55g/${environment_name}/tf-wp/tf-wp-latest.tgz .
-tar -zxvf wpmyportal-latest.tgz
