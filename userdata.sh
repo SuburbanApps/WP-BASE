@@ -16,17 +16,18 @@ sudo touch test-file.txt
 # WP installation
 echo "Instalando Wordpress"
 mkdir /var/www/html
+cd /var/www/html
 wget https://es.wordpress.org/latest-es_ES.tar.gz
-sudo tar xf latest-es_ES.tar.gz -C /var/www/html/
+# sudo tar xf latest-es_ES.tar.gz -C /var/www/html/
 
-if [ ! -f "/var/www/health-check.php" ]; then
-  echo "<?php
-\$_SERVER['HTTP_HOST'] = 'ec2-user@172.31.53.77'; // Use the domain of the network root site.
-require( './wp-load.php' );
-echo 'OK';
-?>" >> /var/www/health-check.php
-fi
-chown root:root /var/www
-chown nginx:nginx /var/www/* -R
-chmod 755 /var/www/* -R
-rm -f wpmyportal-latest.tgz
+# if [ ! -f "/var/www/health-check.php" ]; then
+#   echo "<?php
+# \$_SERVER['HTTP_HOST'] = 'ec2-user@172.31.53.77'; // Use the domain of the network root site.
+# require( './wp-load.php' );
+# echo 'OK';
+# ?>" >> /var/www/health-check.php
+# fi
+# chown root:root /var/www
+# chown nginx:nginx /var/www/* -R
+# chmod 755 /var/www/* -R
+# rm -f wpmyportal-latest.tgz
