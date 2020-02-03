@@ -16,5 +16,6 @@ sudo touch test-file.txt
 # WP installation
 echo "Instalando Wordpress"
 mkdir /var/www
+wget https://es.wordpress.org/latest-es_ES.tar.gz
 sudo tar xf latest-es_ES.tar.gz -C /var/www/html/
 cd /var/www
